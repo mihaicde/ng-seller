@@ -1,0 +1,25 @@
+
+<div>
+  <div class="center-align z-depth-3 row loginForm">
+    <h4> denopi </h4>
+    <form materialize [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="input-field">
+          <i class="material-icons prefix">email</i>
+          <input id="icon_email" type="text" class="validate" class="validate" formControlName="email">
+          <label for="icon_email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <i class="material-icons prefix">lock</i>
+          <input id="icon_password" type="password" cclass="validate" formControlName="password">
+          <label for="icon_password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn waves-effect waves-light cyan darken-1" type="submit" name="action" [disabled]="!myForm.valid">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

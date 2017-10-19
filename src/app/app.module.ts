@@ -29,6 +29,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { CategoryComponent } from './category/category.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { CategoryComponent } from './category/category.component';
     ParentComponent,
     ChildComponent,
     ModalComponent,
-    CategoryComponent
+    CategoryComponent,
+    LogInComponent
   ],
   providers: [
     AuthService,

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 import { CategoryComponent } from './category/category.component';
 
@@ -14,6 +15,7 @@ const APP_ROUTES: Routes = [
   // { path: '', redirectTo: '/UI-design', pathMatch: 'full' },
   { path: 'test', component: ParentComponent },
 
+  { path: 'login', component: LogInComponent },
   { path: 'category', component: CategoryComponent },
 
   { path: 'modal', component: ChildComponent }, // For test
