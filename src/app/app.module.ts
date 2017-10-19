@@ -49,7 +49,11 @@ import { CategoryComponent } from './category/category.component';
     ModalComponent,
     CategoryComponent
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    NotificationService,
+    { provide: ErrorHandler, useClass: CustomErrorHandler }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
