@@ -1,0 +1,30 @@
+<p>
+  parent works!
+</p>
+<br/>
+
+<!-- Modal 1 -->
+<app-child #modal1 [title]="modal_header1" [modalName]='"Modal 1 here"'>
+  <p class="modal-body">
+    Testing the moday body system blablablabla
+  </p>
+  <a footer-type="action" class="waves-effect waves-green btn-flat" (click)="action()">Save</a>
+</app-child>
+
+<!-- Modal 2 -->
+<app-child #modal2 [title]="modal_header2">
+    <p class="modal-body">
+      Testing the moday body system blablablabla second part
+    </p>
+</app-child>
+
+<!-- Modal 3 -->
+<app-child #modal3 [title]="'Modal 3 title'" [modalName]="modalName3">
+  <div class="modal-body">
+    <p>These are</p>
+    <p>multiple lines</p>
+    <p>in a single body</p>
+  </div>
+  <a footer-type="action" class="waves-effect waves-green btn-flat" (click)="action()">Save</a>
+  <a footer-type="action" class="waves-effect waves-green btn-flat" (click)="reset()">Reset</a>
+</app-child>

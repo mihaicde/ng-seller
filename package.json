@@ -21,9 +21,20 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+<<<<<<< Updated upstream
     "angularfire2": "^5.0.0-rc.3",
     "core-js": "^2.4.1",
     "firebase": "^4.5.2",
+=======
+    "angular2-materialize": "^15.1.9",
+    "angularfire2": "^5.0.0-rc.3",
+    "core-js": "^2.4.1",
+    "firebase": "^4.5.2",
+    "hammerjs": "^2.0.8",
+    "jquery": "^2.2.4",
+    "materialize-css": "^0.100.2",
+    "primeng": "^4.2.2",
+>>>>>>> Stashed changes
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

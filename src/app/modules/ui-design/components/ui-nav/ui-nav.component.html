@@ -1,0 +1,46 @@
+<header>
+    <nav class="navAdmin" role="navigation">
+      <div class="nav-wrapper">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="" materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Mesaje">
+              <i class="material-icons left header_icon">local_post_office</i>
+              <span class="new badge teal lighten-1 header_badges btn-floating pulse">2</span>
+            </a>
+          </li>
+          <li>
+            <a href="" materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Notificari">
+              <i class="material-icons left header_icon">notifications_active</i>
+              <span class="new badge purple lighten-1 header_badges btn-floating pulse">4</span>
+            </a>
+          </li>
+          <li>
+            <a href="" materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Alerte">
+              <i class="material-icons left header_icon">error</i>
+              <span class="new badge red accent-3 header_badges btn-floating pulse">1</span>
+            </a>
+          </li>
+          <li>
+            <a href="" (click)="onLogout()" materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Logout">
+              <i class="material-icons left header_icon">exit_to_app</i>
+            </a>
+          </li>
+        </ul>
+
+        <ul materialize="collapsible" id="slide-out" class="side-nav fixed sideNavAdmin collapsible collapsible-accordion">
+          <li>
+            <div class="userView">
+              <div class="background">
+              </div>
+            </div>
+          </li>
+          <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['buttons']"><i class="material-icons" routerLinkActive="active">home</i>Buttons</a></li>
+          <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['preloaders']"><i class="material-icons" routerLinkActive="active">home</i>Preloaders</a></li>
+          <li><div class="divider"></div></li>
+        </ul>
+
+        <a href="#" materialize="sideNav" [materializeParams]="[{edge:'left'}]" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+      </div>
+    </nav>
+  </header>

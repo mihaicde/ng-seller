@@ -12,9 +12,9 @@ interface Post {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `<router-outlet></router-outlet>`,
 })
+<<<<<<< Updated upstream
 export class AppComponent implements OnInit {
   email: string;
   password: string;
@@ -43,3 +43,8 @@ export class AppComponent implements OnInit {
     this.authService.logout();
   }
 }
+=======
+
+export class AppComponent {
+}
+>>>>>>> Stashed changes

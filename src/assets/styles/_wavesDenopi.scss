@@ -1,0 +1,13 @@
+.waves-effect {
+  &.waves-purple .waves-ripple {
+    background-color: rgba(156, 39, 176, 0.70);
+  }
+  // Flo start
+  &.waves-pink .waves-ripple {
+    background-color: #f50057;
+  }
+  &.waves-cyan-accent-2 .waves-ripple {
+    background-color: #18ffff;
+  }
+}
+  // Flo end
