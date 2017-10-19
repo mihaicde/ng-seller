@@ -9,11 +9,11 @@ import { Observable } from 'rxjs/Observable';
 export class AuthService {
 
   user: Observable<firebase.User>;
-  
+
     constructor(private firebaseAuth: AngularFireAuth) {
       this.user = firebaseAuth.authState;
     }
-  
+
     signup(email: string, password: string) {
       this.firebaseAuth
         .auth
@@ -22,10 +22,10 @@ export class AuthService {
           console.log('Success!', value);
         })
         .catch(err => {
-          console.log('Something went wrong:',err.message);
-        });    
+          console.log('Something went wrong:', err.message);
+        });
     }
-  
+
     login(email: string, password: string) {
       this.firebaseAuth
         .auth
@@ -34,15 +34,13 @@ export class AuthService {
           console.log('Nice, it worked!');
         })
         .catch(err => {
-          console.log('Something went wrong:',err.message);
+          console.log('Something went wrong:', err.message);
         });
     }
-  
+
     logout() {
       this.firebaseAuth
         .auth
         .signOut();
     }
-  
-
 }

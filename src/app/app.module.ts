@@ -31,18 +31,6 @@ import { ChildComponent } from './child/child.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { CategoryComponent } from './category/category.component';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyBxSKTUuyNFFiHWrmTp_AsLsDsFJhtMp74',
-  authDomain: 'denopi-test.firebaseapp.com',
-  databaseURL: 'https://denopi-test.firebaseio.com',
-  projectId: 'denopi-test',
-  storageBucket: 'denopi-test.appspot.com',
-  messagingSenderId: '539751143361'
-};
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -51,7 +39,8 @@ const firebaseConfig = {
     HttpModule,
     ReactiveFormsModule,
     GrowlModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFirestoreModule
   ],
   declarations: [
@@ -62,21 +51,7 @@ const firebaseConfig = {
     ModalComponent,
     CategoryComponent
   ],
-<<<<<<< Updated upstream
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFirestoreModule
-  ],
   providers: [AuthService],
-=======
-  providers: [
-    NotificationService,
-    { provide: ErrorHandler, useClass: CustomErrorHandler } // overrride default error handler
-  ],
->>>>>>> Stashed changes
   bootstrap: [AppComponent]
 })
 export class AppModule { }

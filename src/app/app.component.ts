@@ -14,7 +14,7 @@ interface Post {
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`,
 })
-<<<<<<< Updated upstream
+
 export class AppComponent implements OnInit {
   email: string;
   password: string;
@@ -36,15 +36,10 @@ export class AppComponent implements OnInit {
 
   login() {
     this.authService.login(this.email, this.password);
-    this.email = this.password = '';    
+    this.email = this.password = '';
   }
 
   logout() {
     this.authService.logout();
   }
 }
-=======
-
-export class AppComponent {
-}
->>>>>>> Stashed changes
