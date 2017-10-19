@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers, Response } from '@angular/http';
+import { Router } from '@angular/router';
+
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -10,7 +13,10 @@ export class AuthService {
 
   user: Observable<firebase.User>;
 
-    constructor(private firebaseAuth: AngularFireAuth) {
+    constructor(
+      private firebaseAuth: AngularFireAuth,
+      private http: Http,
+      private router: Router) {
       this.user = firebaseAuth.authState;
     }
 
@@ -42,5 +48,18 @@ export class AuthService {
       this.firebaseAuth
         .auth
         .signOut();
+    }
+
+    isLoggedIn() {
+      // verify if user is logedIn
+      if (localStorage.getItem('token') !== null ) {
+        //true
+        return localStorage.getItem('token') !== null;
+      } else {
+        //false
+        window.alert('Forbidden access! Please log in!');
+        this.router.navigateByUrl('/');
+        return localStorage.getItem('token') !== null;
+      }
     }
 }

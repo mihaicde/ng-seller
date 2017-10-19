@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthComponent } from './shared/components/auth/auth.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 
@@ -13,7 +12,6 @@ import { ModalComponent } from './shared/components/modal/modal.component'; // F
 const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
   // { path: '', redirectTo: '/UI-design', pathMatch: 'full' },
-  { path: 'auth', component: AuthComponent },
   { path: 'test', component: ParentComponent },
 
   { path: 'category', component: CategoryComponent },

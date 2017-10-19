@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-import { AuthService } from './auth.service';
+import { AuthService } from './shared/services/auth.service';
 
 import { ErrorHandler } from '@angular/core';
 
@@ -25,7 +25,6 @@ import { AppComponent } from './app.component';
 
 import { MaterializeModule } from 'angular2-materialize';
 
-import { AuthComponent } from './shared/components/auth/auth.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
@@ -45,7 +44,6 @@ import { CategoryComponent } from './category/category.component';
   ],
   declarations: [
     AppComponent,
-    AuthComponent,
     ParentComponent,
     ChildComponent,
     ModalComponent,
