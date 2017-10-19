@@ -1,16 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
+
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+interface Post {
+  title: string;
+  content: string;
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(public authService: AuthService) {}
+  postsCol: AngularFirestoreCollection<Post>;
+  posts: Observable<Post[]>;
+
+  constructor(public authService: AuthService, private afs: AngularFirestore) {}
+
+  ngOnInit() {
+    this.postsCol = this.afs.collection('posts');
+    this.posts = this.postsCol.valueChanges();
+  }
 
   signup() {
     this.authService.signup(this.email, this.password);

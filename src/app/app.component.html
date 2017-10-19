@@ -16,3 +16,13 @@
 <button (click)="logout()" *ngIf="authService.user | async">
   Logout
 </button>
+
+
+<br/>
+<ul *ngFor="let post of posts | async">
+  <li>
+    <strong>{{ post.title}}</strong>
+    <br>
+    {{post.content}}
+  </li>
+</ul>
