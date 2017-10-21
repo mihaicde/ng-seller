@@ -2,9 +2,9 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+// import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+// import { Observable } from 'rxjs/Observable';
+// import 'rxjs/add/operator/map';
 
 import { User } from '../models/User';
 import { AuthService } from '../shared/services/auth.service';
@@ -21,7 +21,12 @@ export class LogInComponent implements OnInit {
   // postsCol: AngularFirestoreCollection<Post>;
   // posts: Observable<Post[]>;
 
-  constructor(public authService: AuthService, private afs: AngularFirestore, private router: Router) {}
+  constructor
+  (
+    public authService: AuthService,
+    // private afs: AngularFirestore,
+    // private router: Router
+  ) {}
     login() {
       this.authService.login(this.email, this.password);
       this.email = this.password = '';
