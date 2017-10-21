@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
-import {MaterializeAction} from 'angular2-materialize';
+import { MaterializeAction } from 'angular2-materialize';
 
 @Component({
   selector: 'app-modal',
@@ -11,8 +11,15 @@ import {MaterializeAction} from 'angular2-materialize';
 export class ModalComponent implements OnInit {
 
   modalActions = new EventEmitter<string|MaterializeAction>();
-  modalBody: string;
-  // @ViewChild('lgModal') modal: MaterializeAction;
+  modalHeader = 'Header test';
+  modalBody = 'body test';
+
+  @Input()
+  modalName?: string = 'modal';
+  @Input()
+  title?: string;
+  @Input()
+  showFooter?: boolean = true;
 
   constructor() { }
 
@@ -26,12 +33,6 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  showModal(modalBody: string) {
-    if (modalBody !== undefined) {
-        this.modalBody = modalBody;
-        this.openModal();
-    }
-  }
 
 }
 

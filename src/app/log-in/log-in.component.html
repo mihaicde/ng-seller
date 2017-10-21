@@ -1,7 +1,9 @@
+  <div class="center-align z-depth-3 row loginForm galaxy">
+    <div class="row">
+        <img src="/assets/images/denopi1.png" style="width:7rem; vertical-align:bottom;"/>
+        <span style="font-size:3rem; margin-top:-20px; color:#18ffff;"> denopi </span>
+    </div>
 
-<div>
-  <div class="center-align z-depth-3 row loginForm">
-    <h4> denopi </h4>
     <form materialize [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="input-field">
@@ -18,8 +20,7 @@
         </div>
       </div>
       <div class="row">
-        <button class="btn waves-effect waves-light cyan darken-1" type="submit" name="action" [disabled]="!myForm.valid">Login</button>
+        <button class="btn waves-effect waves-light cyan accent-3" type="submit" name="action" [disabled]="!myForm.valid">Login</button>
       </div>
     </form>
   </div>
-</div>

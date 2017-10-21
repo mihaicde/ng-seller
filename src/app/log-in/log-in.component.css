@@ -1,5 +1,6 @@
-.sigupform{
-  margin-top:2%;
+
+.loginForm{
+  margin-top:12%;
   padding:30px;
-  background:#fff;
+  max-width:400px;
 }

@@ -337,6 +337,17 @@ $shades: (
   "transparent":  transparent
 );
 
+$galaxy: (
+  "base":       #34475a, //topnav
+  "darken-1":   #2f3e50, // main
+  "darken-2":   #2a3848 //sidenav
+);
+
+$sideNav: #2a3848;
+$main: #2f3e50;
+$topNav: #34475a;
+$fontColor: #b3c1ca;
+
 $colors: (
   "materialize-red": $materialize-red,
   "red": $red,
@@ -358,8 +369,13 @@ $colors: (
   "brown": $brown,
   "blue-grey": $blue-grey,
   "grey": $grey,
-  "shades": $shades
-) !default;
+  "shades": $shades,
+  "sideNav": $sideNav,
+  "main": $main,
+  "topNav": $topNav,
+  "fontColor": $fontColor,
+  "galaxy": $galaxy
+);
 
 
 // Color Classes

@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AngularFireModule } from 'angularfire2';
-import { environment } from '../environments/environment';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+// import { AngularFireModule } from 'angularfire2';
+// import { environment } from '../environments/environment';
+// import { AngularFireAuthModule } from 'angularfire2/auth';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AuthService } from './shared/services/auth.service';
 
@@ -26,7 +26,7 @@ import { AppComponent } from './app.component';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { ParentComponent } from './parent/parent.component';
-import { ChildComponent } from './child/child.component';
+
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { CategoryComponent } from './category/category.component';
 import { LogInComponent } from './log-in/log-in.component';
@@ -39,14 +39,13 @@ import { LogInComponent } from './log-in/log-in.component';
     HttpModule,
     ReactiveFormsModule,
     GrowlModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFirestoreModule
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireAuthModule,
+    // AngularFirestoreModule
   ],
   declarations: [
     AppComponent,
-    ParentComponent,
-    ChildComponent,
+    ParentComponent, // Just for testing the modal component
     ModalComponent,
     CategoryComponent,
     LogInComponent

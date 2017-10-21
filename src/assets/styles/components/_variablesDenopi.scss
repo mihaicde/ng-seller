@@ -45,19 +45,19 @@
 // $link-color: color("light-blue", "darken-1") !default;
 
 
-$primary-color: color("purple", "darken-3");
+$primary-color: $sideNav;
 $primary-color-light: lighten($primary-color, 15%);
 $primary-color-dark: darken($primary-color, 15%);
 
-$secondary-color: color("teal", "accent-3");
+$secondary-color: color("cyan", "accent-3");
 $success-color: color("green", "base");
 $error-color: color("red", "base");
 $link-color: color("light-blue", "darken-1");
 
 // Flo Start
-$navbar-font-color-main: #fff;
-$sidenav-font-color-main: #fff;
-$body-color: color("teal", "base");
+$navbar-font-color-main: $fontColor;
+$sidenav-font-color-main: $fontColor;
+$body-color: $main;
 // Flo End
 
 // 2. Badges

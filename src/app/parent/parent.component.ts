@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { ChildComponent } from '../child/child.component';
+import { ModalComponent } from '../shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-parent',
@@ -9,11 +9,11 @@ import { ChildComponent } from '../child/child.component';
 export class ParentComponent implements OnInit {
 
   @ViewChild('modal1')
-  childComponent1: ChildComponent;
+  childComponent1: ModalComponent;
   @ViewChild('modal2')
-  childComponent2: ChildComponent;
+  childComponent2: ModalComponent;
   @ViewChild('modal3')
-  childComponent3: ChildComponent;
+  childComponent3: ModalComponent;
 
   modal_header1 = 'Header1';
   modal_header2 = 'Header2';

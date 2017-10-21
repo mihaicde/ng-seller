@@ -3,14 +3,18 @@
 
 $roboto-font-path: '../node_modules/materialize-css/dist/fonts/roboto/';
 
-@import '../src/assets/styles/colorsDenopi.scss';
-@import '../src/assets/styles/variablesDenopi.scss';
+@import '../src/assets/fonts/Comfortaa';
+
+@import '../src/assets/styles/components/colorsDenopi';
+@import '../src/assets/styles/components/variablesDenopi';
 
 @import '../node_modules/materialize-css/sass/materialize';
 
-@import '../src/assets/styles/wavesDenopi.scss';
+@import '../src/assets/styles/components/badgesDenopi';
 
-@import '../src/assets/styles/theme.scss';
+@import '../src/assets/styles/components/wavesDenopi';
+
+@import '../src/assets/styles/theme';
 
 
 
