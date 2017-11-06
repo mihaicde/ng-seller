@@ -1,7 +1,12 @@
+ <div class="login-body valign-wrapper">
   <div class="center-align z-depth-3 row loginForm galaxy">
     <div class="row">
-        <img src="/assets/images/denopi1.png" style="width:7rem; vertical-align:bottom;"/>
-        <span style="font-size:3rem; margin-top:-20px; color:#18ffff;"> denopi </span>
+      <div class="col">
+          <img src="/assets/images/denopi1.png" style="width:7rem; vertical-align:bottom;"/>
+      </div>
+      <div class="col">
+          <span style="font-size:3rem;margin-top:20px; color:#18ffff;" class="my-wrapper valign-wrapper center-align"> denopi </span>
+      </div>
     </div>
 
     <form materialize [formGroup]="myForm" (ngSubmit)="onSubmit()">
@@ -24,3 +29,4 @@
       </div>
     </form>
   </div>
+</div>

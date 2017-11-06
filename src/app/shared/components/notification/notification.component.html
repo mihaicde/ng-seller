@@ -1,0 +1,26 @@
+<p materialize
+  [materializeParams]="[
+    div_row +
+      col +
+        icon_1 +
+          notification?.image +
+        icon_2 +
+      div_close +
+      col +
+        span_type +
+          notification?.type + ':' +
+        span_close +
+      div_close +
+    div_close +
+    div_row +
+      col +
+        span_desc +
+          notification?.message +
+        span_close +
+      div_close +
+    div_close ,
+    4000,
+    notification?.color
+  ]"
+  [materializeActions]="globalActions">
+</p>

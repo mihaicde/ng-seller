@@ -1,7 +1,12 @@
-<p>
-  parent works!
-</p>
-<br/>
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red accent-2" (click)="openModal4()">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+
+<br/><br/>
+
+<a class="waves-effect waves-light btn-large" (click)="openModal3()" style="margin-left:20px">Button</a>
 
 <!-- Modal 1 -->
 <app-modal #modal1 [title]="modal_header1" [modalName]='"Modal 1 here"'>
@@ -27,4 +32,12 @@
   </div>
   <a footer-type="action" class="waves-effect waves-green btn-flat" (click)="action()">Save</a>
   <a footer-type="action" class="waves-effect waves-green btn-flat" (click)="reset()">Reset</a>
+</app-modal>
+
+
+<app-modal #modal4 >
+  <div class="modal-body">
+    <p>blaaaaa</p>
+    <button class="btn" type="submit" (click)="onCrud('cacat')">Submit</button>
+  </div>
 </app-modal>

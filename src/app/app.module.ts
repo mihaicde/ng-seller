@@ -23,8 +23,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api'; // Do i need this?
 import { InMemoryDataService } from './shared/services/in-memory-data.service';
 
-import { NotificationService } from './shared/services/notification.service';
-import { CustomErrorHandler } from './shared/services/custom-error-handler';
+// import { NotificationService } from './shared/services/notification.service';
+// import { CustomErrorHandler } from './shared/services/custom-error-handler';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -32,13 +32,11 @@ import { AppComponent } from './app.component';
 
 import { MaterializeModule } from 'angular2-materialize';
 
-import { ParentComponent } from './parent/parent.component';
+// import { ModalComponent } from './shared/components/modal/modal.component';
 
-import { ModalComponent } from './shared/components/modal/modal.component';
-import { CategoryComponent } from './category/category.component';
 import { LogInComponent } from './log-in/log-in.component';
-
-import { CategoryService } from './category/category.service';
+import { RegisterComponent } from './register/register.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -56,16 +54,16 @@ import { CategoryService } from './category/category.service';
   ],
   declarations: [
     AppComponent,
-    ParentComponent, // Just for testing the modal component
-    ModalComponent,
-    CategoryComponent,
-    LogInComponent
+    // ModalComponent,
+    LogInComponent,
+    RegisterComponent,
+    PageNotFoundComponent,
+    // NotificationComponent
   ],
   providers: [
     AuthService,
-    NotificationService,
-    CategoryService,
-    { provide: ErrorHandler, useClass: CustomErrorHandler }
+    // NotificationService,
+    // { provide: ErrorHandler, useClass: CustomErrorHandler }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,35 @@
+
+<app-notification #toast></app-notification>
+<div class="row">
+    <button class="btn green" (click)="success()">Success</button>
+    <button class="btn materialize-red" (click)="danger()">Danger</button>
+    <button class="btn cyan" (click)="info()">Info</button>
+    <button class="btn amber" (click)="warning()">Warning</button>
+</div>
+
+<div class="row">
+    <button class="btn pink" (click)="error()">Error</button>
+    <button class="btn purple" (click)="message()">Message</button>
+    <button class="btn teal" (click)="email()">Email</button>
+    <button class="btn red" (click)="throwNewError()">Throw Error</button>
+</div>
+
+
+<!-- <div class="toast teal" style="top: 0px; transition: transform 0.2s, opacity 0.2s;">
+
+  <div class="row valign-wrapper">
+    <div class="col">
+      <i class="material-icons print iToast">email</i>
+    </div>
+    <div class="col">
+      <span class="center-align notify_type">Email:</span>
+    </div>
+    <div class="col">
+      <span class="center-align notify_title">Title email </span>
+    </div>
+  </div>
+
+  <div class="row valign-wrapper">
+    <span class="center-align notify_desc">desc email</span>
+  </div>
+</div> -->

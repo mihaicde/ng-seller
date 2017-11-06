@@ -5,6 +5,8 @@ import { UiMainComponent } from './components/ui-main/ui-main.component';
 import { UiNavComponent } from './components/ui-nav/ui-nav.component';
 import { UiButtonsComponent } from './components/ui-buttons/ui-buttons.component';
 import { UiPreloadersComponent } from './components/ui-preloaders/ui-preloaders.component';
+import { UiModalComponent } from './components/ui-modal//ui-modal.component';
+import { UiNotificationsComponent } from './components/ui-notifications/ui-notifications.component';
 
 const uiRoutes: Routes = [
     { path: '', component: UiMainComponent },
@@ -19,6 +21,14 @@ const uiRoutes: Routes = [
       {
         path: 'preloaders',
         component: UiPreloadersComponent
+      },
+      {
+        path: 'modals',
+        component: UiModalComponent
+      },
+      {
+        path: 'notifications',
+        component: UiNotificationsComponent
       },
     ]
   }
