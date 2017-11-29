@@ -27,3 +27,11 @@ export class CustomErrorHandler implements ErrorHandler {
         }
     }
 }
+
+
+// Example for throwing errors in services from Observables:
+// .catch((err:Response) =>{
+//   let details = err.json().error;
+//   console.log(details);
+//   return Observable.throw(new Error(details));
+// });

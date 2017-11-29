@@ -5,8 +5,20 @@ import { AdminSideNavComponent } from './components/admin-side-nav/admin-side-na
 import { WebsiteSideNavComponent } from './components/website-side-nav/website-side-nav.component';
 import { MainComponent } from './components/main/main.component';
 
+import { TagsComponent } from './components/tags/tags.component';
+
 const routes: Routes = [
-    { path: '', component: MainComponent }
+    { path: '', component: MainComponent },
+    {
+      path: '',
+      component: MainComponent,
+      children: [
+       {
+         path: 'tags',
+         component: TagsComponent
+       }
+      ]
+    }
 ];
 
 @NgModule({

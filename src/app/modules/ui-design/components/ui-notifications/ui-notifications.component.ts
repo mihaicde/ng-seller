@@ -1,5 +1,5 @@
 import { MaterializeDirective, MaterializeAction } from 'angular2-materialize';
-import {Component, EventEmitter, ViewChild } from '@angular/core';
+import { Component, EventEmitter, ViewChild } from '@angular/core';
 
 import { Notification } from '../../../../shared/models/Notification';
 import { NotificationService } from '../../../../shared/services/notification.service';
@@ -18,8 +18,6 @@ export class UiNotificationsComponent {
   constructor(
     private notifyService: NotificationService
   ) { }
-
-  globalActions = new EventEmitter<string|MaterializeAction>();
 
   success() {
     this.notifyService.success('Obiectul a fost creat');

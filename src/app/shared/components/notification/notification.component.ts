@@ -3,6 +3,7 @@ import { Notification } from '../../models/Notification';
 import { MaterializeDirective, MaterializeAction } from 'angular2-materialize';
 
 import { NotificationService } from '../../services/notification.service';
+import 'rxjs/add/operator/takeWhile';
 
 @Component({
   selector: 'app-notification',

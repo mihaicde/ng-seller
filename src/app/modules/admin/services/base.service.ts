@@ -1,7 +1,8 @@
 import { Http, Response, Headers } from '@angular/http';
 import { Injectable, EventEmitter } from '@angular/core';
-import 'rxjs/add/operator/map';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { FactoryModel } from '../models/factory.model';
 

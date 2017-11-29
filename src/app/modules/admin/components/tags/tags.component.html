@@ -1,0 +1,48 @@
+<app-notification #toast></app-notification>
+<h3>Taguri</h3>
+<div class="collection">
+  <table class="bordered highlight centered">
+    <thead>
+      <tr>
+        <th data-field="tag">Taguri</th>
+        <th data-field="tag">Editare</th>
+        <th data-field="tag">Stergere</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tag of tags;">
+      <td><strong>{{tag.name}}</strong></td>
+      <td>
+        <a class="btn-floating btn-large waves-effect waves-light teal accent-4"
+            (click)="onUpdate(tag)">
+          <i class="material-icons">edit</i>
+        </a>
+      </td>
+      <td>
+        <a class="btn-floating btn-large waves-effect waves-light pink darken-1"
+            (click)="onDelete(tag)">
+          <i class="material-icons">delete</i>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<form materialize [formGroup]="crudForm" (ngSubmit)="onCrud()">
+  <div class="row">
+    <div class="input-field">
+      <i class="material-icons prefix">account_box</i>
+      <input id="name" type="text" class="validate" formControlName="name">
+      <label *ngIf="!edit" for="name">Name</label>
+    </div>
+    <app-field-error-display [displayError]="isFieldValid('name')" errorMsg="Please enter tag name">
+    </app-field-error-display>
+  </div>
+  <div class="row">
+    <button class="btn waves-effect waves-light cyan accent-3" type="submit" name="action">
+      <span *ngIf="!edit">Add</span>
+      <span *ngIf="edit">Update</span>
+    </button>
+  </div>
+</form>

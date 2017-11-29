@@ -17,7 +17,7 @@ import { AuthService } from '../shared/services/auth.service';
 export class LogInComponent implements OnInit {
   email: string;
   password: string;
-  myForm: FormGroup;
+  loginForm: FormGroup;
   // postsCol: AngularFirestoreCollection<Post>;
   // posts: Observable<Post[]>;
 
@@ -51,7 +51,7 @@ export class LogInComponent implements OnInit {
     // }
 
     ngOnInit() {
-      this.myForm = new FormGroup({
+      this.loginForm = new FormGroup({
           email: new FormControl(null,
             [
               Validators.required,

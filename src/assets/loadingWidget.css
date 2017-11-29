@@ -1,0 +1,86 @@
+#wrapper{
+  position:fixed;
+  background: #000;
+  top: 50%;
+  left: 50%;
+  margin-top: -12em; /*set to a negative number 1/2 of your height*/
+  margin-left: -22em; /*set to a negative number 1/2 of your width*/
+}
+
+@-webkit-keyframes spin{
+  0%{
+    -moz-transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+  }
+  100%{
+    -moz-transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+  }
+}
+
+@-moz-keyframes spin{
+  0%{
+    -moz-transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+  }
+  100%{
+    -moz-transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+  }
+}
+
+@-o-keyframes spin{
+  0%{
+    -moz-transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+  }
+  100%{
+    -moz-transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+  }
+}
+
+@-ms-keyframes spin{
+  0%{
+    -moz-transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+  }
+  100%{
+    -moz-transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+  }
+}
+/*
+.sub-border{
+  position:absolute;
+  border-radius:50%;
+  border-top:10px solid #86B32D;
+  border-right:10px solid #679B00;
+  border-bottom:10px solid #B9F73E;
+  border-left:10px solid #C9F76F;
+}
+*/
+.sub-border{
+  position:absolute;
+  border-radius:50%;
+  border-top:6px solid #1de9b6;
+  border-right:6px solid #00e5ff;
+  /*  border-bottom:10px solid #00bfa5  ;*/
+/*   border-left:10px solid #1de9b6 ; */
+}

@@ -10,6 +10,8 @@ $roboto-font-path: '../node_modules/materialize-css/dist/fonts/roboto/';
 
 @import '../node_modules/materialize-css/sass/materialize';
 
+@import '../src/assets/styles/components/formValidation';
+
 @import '../src/assets/styles/components/badgesDenopi';
 
 @import '../src/assets/styles/components/wavesDenopi';
