@@ -15,6 +15,9 @@ import { WebsiteSideNavComponent } from './components/website-side-nav/website-s
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { MainComponent } from './components/main/main.component';
 
+// SERVICES
+import { FormBuilderService } from './services/form-builder.service';
+
 // CATALOG ITEMS
 import { TagsComponent } from './components/tags/tags.component';
 import { TagService } from './services/tags.service';
@@ -41,6 +44,7 @@ import { FieldErrorDisplayComponent } from '../../shared/components/field-error-
     FieldErrorDisplayComponent
   ],
   providers: [
+    FormBuilderService,
     TagService
   ]
 })

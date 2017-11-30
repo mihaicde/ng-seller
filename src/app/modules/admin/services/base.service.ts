@@ -9,6 +9,7 @@ import { FactoryModel } from '../models/factory.model';
 @Injectable()
 export class BaseService {
   protected collection;
+  protected link = 'http://localhost:5555';
 
   constructor(protected http: Http) {
     console.log('Base service initialized');
@@ -34,14 +35,12 @@ export class BaseService {
     return this.http.get(url, { headers })
       .map((response: Response) => {
         const objectResults = response.json().obj;
-        // console.log(objectResults);
-        let transformedObject = []; //???
+        const transformedObject = [];
         let model;
-        for (let obj of objectResults){
+        for (const obj of objectResults){
           model = FactoryModel.getInstance().build(className, obj);
           transformedObject.push(model);
-          }
-        console.log(transformedObject);
+        }
         this.collection = transformedObject;
         return transformedObject;
       });
@@ -56,16 +55,18 @@ export class BaseService {
     return this.http.post(url, body, {headers: headers})
       .map((response: Response) => {
         const result = response.json();
-        let model = FactoryModel.getInstance().build(className, result.obj);
+        console.log(result);
+        const model = FactoryModel.getInstance().build(className, result.obj);
+        console.log(model);
         this.collection.push(model);
-        return model;
+        return result;
       });
   }
 
   deleteModel(url: string, object: any) {
     this.collection.splice(this.collection.indexOf(object), 1);
 
-    url = this.buildUrl(url, object._id);
+    url = this.buildUrl(url, object.id);
 
     return this.http.delete(url)
         .map((response: Response) => response.json());
@@ -75,15 +76,20 @@ export class BaseService {
     const body = JSON.stringify(object);
     const headers = this.getHeaders();
 
-    url = this.buildUrl(url, object._id);
+    url = this.buildUrl(url, object.id);
 
-    return this.http.patch(url, body, {headers: headers})
+    return this.http.put(url, body, {headers: headers})
          .map((response: Response) => response.json());
   }
 
+  // buildUrl(url: string, id?: any) {
+  //   const token = this.getToken();
+  //   return url + (typeof id !== 'undefined' ? '/' + id : '') + token;
+  // }
+
   buildUrl(url: string, id?: any) {
-    const token = this.getToken();
-    return url + (typeof id !== 'undefined' ? '/' + id : '') + token;
+    url = this.link + url;
+    return url + (typeof id !== 'undefined' ? '/' + id : '') ;
   }
 
 }

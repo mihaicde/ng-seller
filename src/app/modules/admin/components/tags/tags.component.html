@@ -1,10 +1,42 @@
   <app-notification #toast></app-notification>
 
   <div class="fixed-action-btn">
-    <a class="btn-floating btn-large teal" (click)="openModalCrudCategory()">
+    <a class="btn-floating btn-large teal" (click)="openModalTag()">
       <i class="large material-icons">add</i>
     </a>
   </div>
+
+  <app-modal #modalTagCrud >
+    <div class="modal-body">
+      <form materialize [formGroup]="crudForm" (ngSubmit)="onCrud()">
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">account_box</i>
+            <input id="name" type="text" class="validate" formControlName="name">
+            <label *ngIf="!edit" for="name">Name</label>
+          </div>
+          <app-field-error-display [displayError]="formBuilderService.isFieldValid(crudForm, 'name')" errorMsg="Please enter tag name">
+          </app-field-error-display>
+        </div>
+        <div class="row">
+          <button class="btn waves-effect waves-light teal" type="submit" name="action">
+            <span *ngIf="!edit">Adauga</span>
+            <span *ngIf="edit">Updateaza</span>
+          </button>
+          <button class="waves-effect waves-green btn-flat" name="action" (click)="closeModalTag()">
+            <span>Inchide</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </app-modal>
+
+  <app-modal #modalTagDelete>
+    <div class="modal-body">
+      <h5 class="center-align">Sigur doriti sa stergeti tag-ul?</h5>
+    </div>
+    <a footer-type="action" class="btn waves-effect waves-green pink darken-2" (click)="onDelete(deleteTag)">Sterge</a>
+  </app-modal>
 
   <div class="cardContainer">
     <h3 class="center-align">Taguri</h3>
@@ -22,13 +54,13 @@
           <td><strong>{{tag.name}}</strong></td>
           <td>
             <a class="btn-floating btn-large waves-effect waves-light teal accent-4"
-                (click)="onUpdate(tag)">
+                (click)="openModalTag(tag)">
               <i class="material-icons">edit</i>
             </a>
           </td>
           <td>
             <a class="btn-floating btn-large waves-effect waves-light pink darken-1"
-                (click)="onDelete(tag)">
+                (click)="openModalTagDelete(tag)">
               <i class="material-icons">delete</i>
             </a>
           </td>
@@ -36,22 +68,4 @@
         </tbody>
       </table>
     </div>
-
-    <form materialize [formGroup]="crudForm" (ngSubmit)="onCrud()">
-      <div class="row">
-        <div class="input-field">
-          <i class="material-icons prefix">account_box</i>
-          <input id="name" type="text" class="validate" formControlName="name">
-          <label *ngIf="!edit" for="name">Name</label>
-        </div>
-        <app-field-error-display [displayError]="isFieldValid('name')" errorMsg="Please enter tag name">
-        </app-field-error-display>
-      </div>
-      <div class="row">
-        <button class="btn waves-effect waves-light cyan accent-3" type="submit" name="action">
-          <span *ngIf="!edit">Add</span>
-          <span *ngIf="edit">Update</span>
-        </button>
-      </div>
-    </form>
   </div>

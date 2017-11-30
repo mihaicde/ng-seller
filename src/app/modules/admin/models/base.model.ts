@@ -4,7 +4,7 @@ export class BaseModel {
     public name: string;
 
     constructor(params) {
-        for (var prop in params) {
+        for (let prop in params) {
             this[prop] = params[prop];
         }
     }

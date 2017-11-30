@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { FormBuilderService } from '../../services/form-builder.service';
+
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 import { Tag } from '../../../../models/Tag';
 import { TagService } from '../../services/tags.service';
@@ -16,40 +18,58 @@ import { NotificationComponent } from '../../../../shared/components/notificatio
 })
 export class TagsComponent implements OnInit {
 
-  @ViewChild('modalTag')
-  childComponent1: ModalComponent;
+  @ViewChild('modalTagCrud')
+  childComponentTag: ModalComponent;
+
+  @ViewChild('modalTagDelete')
+  childComponentTagDelete: ModalComponent;
 
   tags: Tag[];
   crudForm: FormGroup;
   selectedTag: Tag;
+  deleteTag: Tag;
   edit = false;
 
   @ViewChild('toast')
   notificationComp: NotificationComponent;
 
   constructor(
+    private formBuilderService: FormBuilderService,
     private tagService: TagService,
     private notifyService: NotificationService) { }
 
-  // move these separately
-  isFieldValid(field: string) {
-    return !this.crudForm.get(field).valid && this.crudForm.get(field).touched;
+  openModalTag(tag?: Tag) {
+    this.childComponentTag.openModal();
+    if (tag) {
+      this.childComponentTag.title = 'Editeaza Tag';
+      this.selectedTag = tag;
+      console.log(this.selectedTag);
+      this.edit = true;
+      this.crudForm.patchValue({
+        name: this.selectedTag.name
+      });
+    }  else {
+      this.childComponentTag.title = 'Adauga Tag';
+    }
+    console.log(this.crudForm);
   }
 
-  validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
-      console.log(field);
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {
-        this.validateAllFormFields(control);
-      }
-    });
+  closeModalTag() {
+    this.reset();
+    this.childComponentTag.closeModal();
+    console.log('closing tag');
+    this.edit = false;
   }
 
-  success() {
-    this.notifyService.success('Obiectul a fost creat');
+  openModalTagDelete(tag?: Tag) {
+    console.log(tag);
+    this.deleteTag = tag;
+    console.log(this.deleteTag);
+    this.childComponentTagDelete.openModal();
+  }
+
+  closeModalTagDelete() {
+    this.childComponentTagDelete.closeModal();
   }
 
   ngOnInit() {
@@ -63,6 +83,11 @@ export class TagsComponent implements OnInit {
       this.crudForm = new FormGroup({
         name: new FormControl(null, Validators.required),
       });
+
+      this.childComponentTag.showFooter = false;
+      // this.childComponentTag.modalName = 'modal4 aici';
+      // this.childComponentTag.modalBody = 'yey';
+      this.childComponentTag.title = 'Adauga Tag';
   }
 
   onDelete(tag: Tag) {
@@ -75,17 +100,19 @@ export class TagsComponent implements OnInit {
       },
       err => console.log(err)
     );
+    this.closeModalTagDelete();
   }
 
-  onUpdate(tag: Tag) {
-    this.selectedTag = tag;
-    console.log(this.selectedTag);
-    this.edit = true;
-    this.crudForm.patchValue({
-      name: this.selectedTag.name
-    });
-    console.log(this.crudForm);
-  }
+  // onUpdate(tag: Tag) {
+  //   this.openModalTag();
+  //   this.selectedTag = tag;
+  //   console.log(this.selectedTag);
+  //   this.edit = true;
+  //   this.crudForm.patchValue({
+  //     name: this.selectedTag.name
+  //   });
+  //   console.log(this.crudForm);
+  // }
 
   onCrud() {
     if (this.crudForm.valid) {
@@ -127,8 +154,9 @@ export class TagsComponent implements OnInit {
         );
       }
       this.reset();
+      this.closeModalTag();
     } else {
-      this.validateAllFormFields(this.crudForm);
+      this.formBuilderService.validateAllFormFields(this.crudForm);
     }
   }
 
