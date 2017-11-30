@@ -12,52 +12,18 @@ header, main, footer {
 html,
 body{
   height: 100%;
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
 }
-
-.login-body{
-  // background: $body-color;
-  // background-image: linear-gradient(-180deg,rgba(255,131,131,.15) 0,rgba(114,15,76,.15) 100%);
-  // background-image: linear-gradient(132deg,#14134e 0,#512d5a 56%,#843b61 81%,#c16858 100%);
-  // background-image: linear-gradient(132deg,color("teal", "darken-4") 0, color("teal", "darken-3") 56%,color("teal", "base") 81%,color("teal", "accent-4") 100%);
-  // background: linear-gradient(to right, color("teal", "darken-4"), color("teal", "lighten-2"));
-  height:100%;
-  overflow: auto;
-  // background: linear-gradient(130deg, #02CCBA 20%, #AA7ECD 80%); // cyan to pink
-  background: linear-gradient(130deg, #009688 20%, #AA7ECD 80%); //
-  // background: linear-gradient(120deg,#14134e 10%, #512d5a 56%,#843b61 81%,#c16858 100%);
-  transform-origin: left bottom;
-
-  background-size:100% 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-family: 'Comfortaa', cursive;
-  color: $fontColor;
+body {
+  min-height: 100%;
 }
 
 .main{
-  height:100%;
+  min-height:100%;
   width:100%;
   overflow: auto;
   background: $body-color;
-}
-
-.side-nav {
-  position: fixed;
-  width:200px;
-  max-width: 200px;
-}
-
-.userView{
-  margin-left:30px;
-  height:130px;
-  width:130px;
-}
-
-.side_nav_image {
-  height: 100%;
-  width: 100%;
 }
 
 .background{
@@ -65,73 +31,12 @@ body{
   background-size: 100% 100%;
 }
 
-// .sideNavAdmin{
-//   background: $primary-color;
-//   width:180px;
-//   border:none;
-// }
-
-// .productSubMenu{
-//   background-color:$primary-color;
-// }
-
-.side-nav .collapsible-body, .side-nav.fixed .collapsible-body{
-  background-color:$primary-color;
-}
-
-.sideNavAdmin .collapsible-header{
-  padding: 0 ($sidenav-padding * 2);
-}
-
-// .side-nav li > a {
-//   padding: 0px 0px;
-// }
-// .sideNavAdmin > li > a{
-//   color:#19FFFF;
-// }
-
-.side-nav li>a>[class^="mdi-"], .side-nav li>a>[class*="mdi-"], .side-nav li>a{
-  font-size:11px;
-}
-
-.side-nav li>a>i, .side-nav li>a>[class^="mdi-"], .side-nav li>a>[class*="mdi-"], .side-nav li>a>i.material-icons {
-  color:#fff;
-  margin: 0 20px 0 0;
-}
-
-.side-nav li > a {
-  padding:0 16px;
-}
-
 .productSubMenu{
   padding-left:10px;
 }
-// .collapsible-body ul > li > a{
-//   color:#19FFFF;
-// }
 
-
-// Toasts styles
-.toast{
-  // display: inline-block;
-}
-
-.toast .row{
-  margin-bottom: 0px;
-}
-
-.toast .row .col {
-  padding:0.2rem;
-}
-
-.notify_type{
-  font-weight: bold;
-}
-
-.notify_desc{
-  padding-left:0.2rem;
-}
-
-.iToast{
-  margin-top:5px;
+.cardContainer {
+  background-color:$primary-color;
+  color: $fontColor;
+  padding:20px;
 }

@@ -1,0 +1,42 @@
+
+.navAdmin {
+  background-color:$primary-color;
+}
+
+.side-nav {
+  position: fixed;
+  width:200px;
+  max-width: 200px;
+}
+
+.userView{
+  margin-left:30px;
+  height:130px;
+  width:130px;
+}
+
+.side_nav_image {
+  height: 100%;
+  width: 100%;
+}
+
+.side-nav .collapsible-body, .side-nav.fixed .collapsible-body{
+  background-color:$primary-color;
+}
+
+.sideNavAdmin .collapsible-header{
+  padding: 0 ($sidenav-padding * 2);
+}
+
+.side-nav li>a>[class^="mdi-"], .side-nav li>a>[class*="mdi-"], .side-nav li>a{
+  font-size:11px;
+}
+
+.side-nav li>a>i, .side-nav li>a>[class^="mdi-"], .side-nav li>a>[class*="mdi-"], .side-nav li>a>i.material-icons {
+  color:#fff;
+  margin: 0 20px 0 0;
+}
+
+.side-nav li > a {
+  padding:0 16px;
+}

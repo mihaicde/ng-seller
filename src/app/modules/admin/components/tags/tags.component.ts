@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 import { Tag } from '../../../../models/Tag';
 import { TagService } from '../../services/tags.service';
 
@@ -14,6 +15,9 @@ import { NotificationComponent } from '../../../../shared/components/notificatio
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent implements OnInit {
+
+  @ViewChild('modalTag')
+  childComponent1: ModalComponent;
 
   tags: Tag[];
   crudForm: FormGroup;

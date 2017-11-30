@@ -1,0 +1,20 @@
+
+.login-body{
+  // background: $body-color;
+  // background-image: linear-gradient(-180deg,rgba(255,131,131,.15) 0,rgba(114,15,76,.15) 100%);
+  // background-image: linear-gradient(132deg,#14134e 0,#512d5a 56%,#843b61 81%,#c16858 100%);
+  // background-image: linear-gradient(132deg,color("teal", "darken-4") 0, color("teal", "darken-3") 56%,color("teal", "base") 81%,color("teal", "accent-4") 100%);
+  // background: linear-gradient(to right, color("teal", "darken-4"), color("teal", "lighten-2"));
+  height:100%;
+  overflow: auto;
+  // background: linear-gradient(130deg, #02CCBA 20%, #AA7ECD 80%); // cyan to pink
+  background: linear-gradient(130deg, #009688 20%, #AA7ECD 80%); //
+  // background: linear-gradient(120deg,#14134e 10%, #512d5a 56%,#843b61 81%,#c16858 100%);
+  transform-origin: left bottom;
+
+  background-size:100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Comfortaa', cursive;
+  color: $fontColor;
+}
