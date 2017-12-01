@@ -28,6 +28,7 @@ import { MaterializeModule } from 'angular2-materialize';
 import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 // import { FieldErrorDisplayComponent } from './shared/components/field-error-display/field-error-display.component';
 
 
@@ -45,7 +46,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     LogInComponent,
     RegisterComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
     // FieldErrorDisplayComponent
   ],
   providers: [

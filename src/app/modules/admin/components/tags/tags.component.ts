@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { FormBuilderService } from '../../services/form-builder.service';
+import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 import { Tag } from '../../../../models/Tag';
@@ -13,8 +13,7 @@ import { NotificationComponent } from '../../../../shared/components/notificatio
 
 @Component({
   selector: 'app-tags',
-  templateUrl: './tags.component.html',
-  styleUrls: ['./tags.component.css']
+  templateUrl: './tags.component.html'
 })
 export class TagsComponent implements OnInit {
 
