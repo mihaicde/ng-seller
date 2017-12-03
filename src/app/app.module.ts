@@ -20,17 +20,9 @@ import { AppComponent } from './app.component';
 
 import { MaterializeModule } from 'angular2-materialize';
 
-// import { ModalComponent } from './shared/components/modal/modal.component';
-// import { NotificationComponent } from './shared/components/notification/notification.component';
-// import { CustomErrorHandler } from './shared/services/custom-error-handler';
-// import { NotificationService } from './shared/services/notification.service';
-
 import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-// import { FieldErrorDisplayComponent } from './shared/components/field-error-display/field-error-display.component';
-
 
 @NgModule({
   imports: [
@@ -47,12 +39,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LogInComponent,
     RegisterComponent,
     PageNotFoundComponent
-    // FieldErrorDisplayComponent
   ],
   providers: [
-    AuthService,
-    // NotificationService,
-    // { provide: ErrorHandler, useClass: CustomErrorHandler }
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

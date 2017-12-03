@@ -1,8 +1,26 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
-export class ProductService {
+import { Product } from '../../../models/Product';
+import { BaseService } from '../../../shared/services/base.service';
 
-  constructor() { }
+@Injectable()
+export class ProductService extends BaseService  {
+
+  index() {
+    return this.getModel('/products', 'PRODUCT');
+  }
+
+  store(product: Product) {
+    return this.addModel('/products', product, 'PRODUCT', {});
+  }
+
+  destroy(product: Product) {
+    return this.deleteModel('/products', product);
+  }
+
+
+  update(product: Product) {
+    return this.updateModel('/products', product, 'PRODUCT');
+  }
 
 }

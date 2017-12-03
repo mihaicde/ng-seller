@@ -1,3 +1,77 @@
-<p>
-  campaigns works!
-</p>
+  <app-notification #toast></app-notification>
+
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large teal" (click)="openModalCrud()">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+
+  <app-modal #modalCrud >
+    <div class="modal-body">
+      <form materialize [formGroup]="crudForm" (ngSubmit)="onCrud()">
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">account_box</i>
+            <input id="name" type="text" class="validate" formControlName="name">
+            <label *ngIf="!edit" for="name">Name</label>
+          </div>
+          <app-field-error-display
+            [displayError]="formBuilderService.isFieldValid(crudForm, 'name')"
+            errorMsg="Numele lipseste">
+          </app-field-error-display>
+        </div>
+        <div class="row">
+          <button class="btn waves-effect waves-light teal" type="submit" name="action">
+            <span *ngIf="!edit">Adauga</span>
+            <span *ngIf="edit">Updateaza</span>
+          </button>
+          <button class="waves-effect waves-green btn-flat" name="action"
+            (click)="closeModalCrud()">
+            <span>Inchide</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </app-modal>
+
+  <app-modal #modalDelete>
+    <div class="modal-body">
+      <h5 class="center-align">Sigur doriti sa stergeti campania ?</h5>
+    </div>
+    <a footer-type="action" class="btn waves-effect waves-green pink darken-2"
+      (click)="onDelete(deleteCampaign)">
+      Sterge
+    </a>
+  </app-modal>
+
+  <div class="cardContainer">
+    <h3 class="center-align">Campanii</h3>
+    <div class="collection">
+      <table class="bordered highlight centered">
+        <thead>
+          <tr>
+            <th data-field="campaign">Nume</th>
+            <th data-field="campaign">Editare</th>
+            <th data-field="campaign">Stergere</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let campaign of campaigns;">
+          <td><strong>{{campaign.name}}</strong></td>
+          <td>
+            <a class="btn-floating btn-large waves-effect waves-light teal accent-4"
+              (click)="openModalCrud(campaign)">
+              <i class="material-icons">edit</i>
+            </a>
+          </td>
+          <td>
+            <a class="btn-floating btn-large waves-effect waves-light pink darken-1"
+              (click)="openModalDelete(campaign)">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

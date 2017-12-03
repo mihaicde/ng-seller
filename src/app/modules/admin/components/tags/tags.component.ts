@@ -72,7 +72,7 @@ export class TagsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tagService.getTags()
+    this.tagService.index()
       .subscribe(
         (tags: Tag[]) => {
           this.tags = tags;

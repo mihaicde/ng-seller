@@ -72,20 +72,20 @@ export class AvailabilitiesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.availabilityService.getTags()
+    this.availabilityService.index()
     .subscribe(
       (availabilities: Availability[]) => {
         this.availabilities = availabilities;
         console.log(this.availabilities);
       }
     );
+
     this.crudForm = new FormGroup({
       name: new FormControl(null, Validators.required),
     });
 
     this.childComponentAvailability.showFooter = false;
     this.childComponentAvailability.title = 'Adauga Disponibilitate';
-
   }
 
   onDelete(availability?: Availability) {
@@ -112,20 +112,20 @@ export class AvailabilitiesComponent implements OnInit {
       if (this.edit) {
         console.log('editing....');
 
-        const tag = new Availability(JSON.parse(JSON.stringify({
+        const availability = new Availability(JSON.parse(JSON.stringify({
           id: this.selectedAvailability.id,
           name: this.crudForm.value.name
         })));
-        console.log(tag);
-        this.availabilityService.update(tag)
+
+        this.availabilityService.update(availability)
         .subscribe(
           data => {
             this.edit = false;
             console.log(data);
             this.notifyService.success(data.message);
             for (let i = 0; i < this.availabilities.length; i++) {
-              if (this.availabilities[i].id === tag.id) {
-                this.availabilities[i].name = tag.name;
+              if (this.availabilities[i].id === availability.id) {
+                this.availabilities[i].name = availability.name;
               }
             }
           },

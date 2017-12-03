@@ -1,8 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
+
+import { Filter } from '../../../models/Filter';
+import { BaseService } from '../../../shared/services/base.service';
 
 @Injectable()
-export class FilterService {
+export class FilterService extends BaseService {
 
-  constructor() { }
+  index() {
+    return this.getModel('/filters', 'FILTER');
+  }
 
+  store(filter: Filter) {
+    return this.addModel('/filters', filter, 'FILTER', {});
+  }
+
+  destroy(filter: Filter) {
+    return this.deleteModel('/filters', filter);
+  }
+
+
+  update(filter: Filter) {
+    return this.updateModel('/filters', filter, 'FILTER');
+  }
 }
