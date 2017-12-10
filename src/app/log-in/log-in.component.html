@@ -1,10 +1,12 @@
- <div class="login-body valign-wrapper">
+
+<div class="login-body valign-wrapper">
+  <app-notification #toast></app-notification>
   <div class="center-align z-depth-3 row loginForm galaxy">
-    <div class="row">
-      <div class="colg">
+    <!-- <div class="row">
+      <div class="col">
         <h4> -- login -- </h4>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col">
           <img src="/assets/images/denopi1.png" style="width:7rem; vertical-align:bottom;"/>
@@ -14,13 +16,15 @@
       </div>
     </div>
 
-    <form materialize [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form materialize [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <div class="row">
         <div class="input-field">
           <i class="material-icons prefix">email</i>
           <input id="icon_email" type="text" class="validate" class="validate" formControlName="email">
           <label for="icon_email">Email</label>
         </div>
+        <app-field-error-display [displayError]="formBuilderService.isFieldValid(loginForm, 'email')" errorMsg="Email is required and format should be john@doe.com">
+        </app-field-error-display>
       </div>
       <div class="row">
         <div class="input-field">
@@ -28,6 +32,8 @@
           <input id="icon_password" type="password" cclass="validate" formControlName="password">
           <label for="icon_password">Password</label>
         </div>
+        <app-field-error-display [displayError]="formBuilderService.isFieldValid(loginForm, 'password')" errorMsg="Please enter your password">
+        </app-field-error-display>
       </div>
       <div class="row">
         <button class="btn waves-effect waves-light cyan accent-3" type="submit" name="action" [disabled]="!loginForm.valid">Login</button>

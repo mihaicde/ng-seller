@@ -16,14 +16,16 @@ export class BaseService {
   }
 
   getHeaders() {
-    return new Headers({'Content-Type': 'application/json'});
+    const headers =  new Headers({'Content-Type': 'application/json'});
+    const token = localStorage.getItem('token');
+    headers.append('Authorization', `Bearer ${token}`);
+    return headers;
   }
 
   getToken() {
-    const token = localStorage.getItem('token')
-         ? '?token=' + localStorage.getItem('token')
-         : '';
-
+    const token = localStorage.getItem('token');
+        //  ? '?token=' + localStorage.getItem('token')
+        //  : '';
     return token;
   }
 
@@ -65,10 +67,11 @@ export class BaseService {
 
   deleteModel(url: string, object: any) {
     this.collection.splice(this.collection.indexOf(object), 1);
+    const headers = this.getHeaders();
 
     url = this.buildUrl(url, object.id);
 
-    return this.http.delete(url)
+    return this.http.delete(url, {headers: headers})
         .map((response: Response) => response.json());
   }
 
@@ -89,7 +92,8 @@ export class BaseService {
 
   buildUrl(url: string, id?: any) {
     url = this.link + url;
-    return url + (typeof id !== 'undefined' ? '/' + id : '') ;
+    // const token = this.getToken();
+    return url + (typeof id !== 'undefined' ? '/' + id : '');
   }
 
 }

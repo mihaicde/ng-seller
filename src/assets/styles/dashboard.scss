@@ -1,0 +1,62 @@
+
+
+i.left {
+  float: left;
+  margin-right: 0px;
+}
+
+.ordes_tables td > span{
+float:none;
+}
+
+/*
+*********************************************
+   COMPONENTs
+*********************************************
+*/
+
+.widget_small{
+color:#fff;
+padding-left:10px;
+padding-right:10px;
+border: none;
+border-radius:5px;
+}
+
+.widget_small_image{
+  margin-top: 20px;
+}
+
+.widget_small_title{
+font-size:35px;
+font-weight: bold;
+}
+
+.widget_small_text{
+padding:5px;
+margin-right:0 auto;
+}
+
+.widget_right{
+  padding-top:10px;
+}
+
+.report-card{
+border: none;
+}
+
+.report-card .card-icon i{
+font-size:45px;
+}
+
+.report-card .card-value{
+font-size:30px;
+}
+
+.report-card .card-action{
+border: none;
+}
+
+.report-card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+color:#fff;
+}

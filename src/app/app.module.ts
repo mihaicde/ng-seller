@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 // import my other modules so the components added there would work globally
 import { UiDesignModule } from './modules/ui-design/ui-design.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 import { AuthService } from './shared/services/auth.service';
 
@@ -24,12 +25,16 @@ import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { FormBuilderService } from './shared/services/form-builder.service';
+import { LoggedInGuard } from './shared/guards/singedin.guard';
+
 @NgModule({
   imports: [
     BrowserModule,
     MaterializeModule.forRoot(),
     AppRoutingModule,
     AdminModule,
+    SharedModule,
     UiDesignModule,
     HttpModule,
     ReactiveFormsModule
@@ -41,7 +46,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PageNotFoundComponent
   ],
   providers: [
-    AuthService
+    AuthService,
+    FormBuilderService,
+    LoggedInGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -4,21 +4,24 @@ import { Router } from '@angular/router';
 
 import { User } from '../models/User';
 import { AuthService } from '../shared/services/auth.service';
+import { FormBuilderService } from '../shared/services/form-builder.service';
 // import { Notification } from '../shared/models/Notification';
 // import { NotificationService } from '../shared/services/notification.service';
 // import { NotificationComponent } from '../shared/components/notification/notification.component';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
   // @ViewChild('toast')
   // notificationComp: NotificationComponent;
   registerForm: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private formBuilderService: FormBuilderService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -27,44 +30,33 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.email
       ]),
-      password: new FormControl(null, Validators.required)
+      password: new FormControl(null, Validators.required),
+      role: new FormControl('Admin')
     });
   }
 
-  isFieldValid(field: string) {
-    return !this.registerForm.get(field).valid && this.registerForm.get(field).touched;
+  reset() {
+    this.registerForm.reset();
   }
-
 
   onRegister() {
     if (this.registerForm.valid) {
       console.log('form submitted');
+      // console.log(this.registerForm.value);
+      this.registerForm.patchValue({
+        role: 'Admin'
+      });
       const user = new User(this.registerForm.value);
-      this.authService.signup(user)
+      console.log(user);
+      this.authService.auth(user, 'register')
       .subscribe(
           data => console.log(data),
           error => console.log(error)
       );
       this.reset();
     } else {
-      this.validateAllFormFields(this.registerForm);
+      this.formBuilderService.validateAllFormFields(this.registerForm);
     }
-  }
-
-  validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
-      console.log(field);
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {
-        this.validateAllFormFields(control);
-      }
-    });
-  }
-
-  reset() {
-    this.registerForm.reset();
   }
 
 }

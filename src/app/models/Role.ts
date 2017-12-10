@@ -1,9 +1,8 @@
 import { Utils } from '../utils/Utils';
 
-export class Website {
+export class Role {
   id: string;
   name: string;
-
 
   constructor(data?: JSON) {
     if (data === undefined || data === null) {

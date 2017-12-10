@@ -4,19 +4,21 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { Product } from '../../../../models/Product';
-import { ProductService } from '../../services/product.service';
+import { User } from '../../../../models/User';
+import { Role } from '../../../../models/Role';
+import { UserService } from '../../services/user.service';
+import { RolesService } from '../../services/roles.service';
 
 import { Notification } from '../../../../shared/models/Notification';
 import { NotificationService } from '../../../../shared/services/notification.service';
 import { NotificationComponent } from '../../../../shared/components/notification/notification.component';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html'
+  selector: 'app-users',
+  templateUrl: './users.component.html'
 })
 
-export class ProductsComponent implements OnInit {
+export class UsersComponent implements OnInit {
 
   @ViewChild('modalCrud')
   childComponentCrud: ModalComponent;
@@ -24,10 +26,11 @@ export class ProductsComponent implements OnInit {
   @ViewChild('modalDelete')
   childComponentDelete: ModalComponent;
 
-  products: Product[];
+  users: User[];
+  roles: Role[];
   crudForm: FormGroup;
-  selectedProduct: Product;
-  deleteProduct: Product;
+  selectedUser: User;
+  deleteUser: User;
   edit = false;
 
   @ViewChild('toast')
@@ -35,7 +38,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private formBuilderService: FormBuilderService,
-    private productService: ProductService,
+    private userService: UserService,
+    private rolesService: RolesService,
     private notifyService: NotificationService
   ) { }
 
@@ -43,17 +47,17 @@ export class ProductsComponent implements OnInit {
     this.crudForm.reset();
   }
 
-  openModalCrud(product: Product) {
+  openModalCrud(user: User) {
     this.childComponentCrud.openModal();
-    if (product) {
-      this.childComponentCrud.title = 'Editeaza Produsul';
-      this.selectedProduct = product;
+    if (user) {
+      this.childComponentCrud.title = 'Editeaza Utilizatorul';
+      this.selectedUser = user;
       this.edit = true;
       this.crudForm.patchValue({
-        name: this.selectedProduct.name
+        name: this.selectedUser.name
       });
     }  else {
-      this.childComponentCrud.title = 'Adauga Produsul';
+      this.childComponentCrud.title = 'Adauga Utilizator';
     }
     console.log(this.crudForm);
   }
@@ -64,8 +68,8 @@ export class ProductsComponent implements OnInit {
     this.edit = false;
   }
 
-  openModalDelete(product: Product) {
-    this.deleteProduct = product;
+  openModalDelete(user: User) {
+    this.deleteUser = user;
     this.childComponentDelete.openModal();
   }
 
@@ -74,11 +78,19 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.index()
+    this.userService.index()
     .subscribe(
-      (products: Product[]) => {
-        this.products = products;
-        console.log(this.products);
+      (users: User[]) => {
+        this.users = users;
+        console.log(this.users);
+      }
+    );
+
+    this.rolesService.index()
+    .subscribe(
+      (roles: Role[]) => {
+        this.roles = roles;
+        console.log(this.roles);
       }
     );
 
@@ -87,11 +99,11 @@ export class ProductsComponent implements OnInit {
     });
 
     this.childComponentCrud.showFooter = false;
-    this.childComponentCrud.title = 'Adauga Produsul';
+    this.childComponentCrud.title = 'Adauga Utilizator';
   }
 
-  onDelete(product?: Product) {
-    this.productService.destroy(product)
+  onDelete(user?: User) {
+    this.userService.destroy(user)
     .subscribe(
       data => {
         console.log(data);
@@ -107,27 +119,27 @@ export class ProductsComponent implements OnInit {
       if (this.edit) {
         console.log('editing....');
 
-        const product = new Product(JSON.parse(JSON.stringify({
-          id: this.selectedProduct.id,
+        const user = new User(JSON.parse(JSON.stringify({
+          id: this.selectedUser.id,
           name: this.crudForm.value.name
         })));
-        this.productService.update(product)
+        this.userService.update(user)
         .subscribe(
           data => {
             this.edit = false;
             console.log(data);
             this.notifyService.success(data.message);
-            for (let i = 0; i < this.products.length; i++) {
-              if (this.products[i].id === product.id) {
-                this.products[i].name = product.name;
+            for (let i = 0; i < this.users.length; i++) {
+              if (this.users[i].id === user.id) {
+                this.users[i].name = user.name;
               }
             }
           },
           error => console.log(error)
         );
       } else {
-        const product = new Product(this.crudForm.value);
-        this.productService.store(product)
+        const user = new User(this.crudForm.value);
+        this.userService.store(user)
         .subscribe(
             data => {
               this.notifyService.success(data.message);

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminSideNavComponent } from './admin-side-nav.component';
+import { UsersComponent } from './users.component';
 
-describe('AdminSideNavComponent', () => {
-  let component: AdminSideNavComponent;
-  let fixture: ComponentFixture<AdminSideNavComponent>;
+describe('UsersComponent', () => {
+  let component: UsersComponent;
+  let fixture: ComponentFixture<UsersComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminSideNavComponent ]
+      declarations: [ UsersComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminSideNavComponent);
+    fixture = TestBed.createComponent(UsersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

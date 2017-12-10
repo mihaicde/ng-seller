@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminSideNavComponent } from './components/admin-side-nav/admin-side-nav.component';
-import { WebsiteSideNavComponent } from './components/website-side-nav/website-side-nav.component';
 import { MainComponent } from './components/main/main.component';
 
+// ADMIN COMPONENTS
+import { WebsiteSideNavComponent } from './components/website-side-nav/website-side-nav.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SysconfigComponent } from './components/sysconfig/sysconfig.component';
+
+// CATALOG
 import { TagsComponent } from './components/tags/tags.component';
 import { AvailabilitiesComponent } from './components/availabilities/availabilities.component';
 import { FiltersComponent } from './components/filters/filters.component';
@@ -12,18 +16,44 @@ import { SpecsComponent } from './components/specs/specs.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
+import { WebsitesComponent } from './components/websites/websites.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-    { path: '', component: MainComponent },
+    // {
+    //   path: '',
+    //   component: MainComponent
+    // },
     {
       path: '',
       component: MainComponent,
       children: [
-       {
-         path: 'tags',
-         component: TagsComponent
-       },
-       {
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
+      {
+        path: 'users',
+        component: UsersComponent
+      },
+      {
+        path: 'websites',
+        component: WebsitesComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'sysconfig',
+        component: SysconfigComponent
+      },
+      {
+        path: 'tags',
+        component: TagsComponent
+      },
+      {
         path: 'availabilities',
         component: AvailabilitiesComponent
       },
@@ -40,7 +70,7 @@ const routes: Routes = [
         component: CategoriesComponent
       },
       {
-        path: 'producs',
+        path: 'products',
         component: ProductsComponent
       },
       {

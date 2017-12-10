@@ -9,38 +9,57 @@ import { User } from '../../models/User';
 
 @Injectable()
 export class AuthService {
-    constructor(private http: Http, private router: Router) {}
 
-    signup(user: User) {
-      const body = JSON.stringify(user);
-      console.log(body);
-      const headers = new Headers({'Content-Type': 'application/json'});
+  private loggedIn = false;
+  protected link = 'http://localhost:5555/';
 
-      return this.http.post('http://127.0.0.1:3333/user', body, {headers: headers})
-          .map((response: Response) => response.json())
-          .catch((err: Response) => {
-              console.log('eroare la serviciu');
-              console.log(err);
-              return Observable.throw(err.json());
-          });
+  constructor(
+    private http: Http,
+    private router: Router) {
+      this.loggedIn = !!localStorage.getItem('token');
     }
 
-    login(email: string, password: string) {
-    }
+  auth (user: User, method) {
+    const body = JSON.stringify(user);
+    const headers = new Headers({'Content-Type': 'application/json'});
 
-    logout() {
-    }
+    return this.http.post(this.link + method, body, {headers: headers})
+        .map((response: Response) => {
+          const res = response.json();
+          console.log(res);
+          if (res.token) {
+            console.log(res.token.token);
+            localStorage.setItem('token', res.token.token);
+            this.loggedIn = true;
+            return res;
+          }
+        })
+        .catch((err: Response) => {
+            console.log('eroare la serviciu');
+            console.log(err);
+            return Observable.throw(err.json());
+        });
+  }
 
-    isLoggedIn() {
-      // verify if user is logedIn
-      if (localStorage.getItem('token') !== null ) {
-        // true
-        return localStorage.getItem('token') !== null;
-      } else {
-        // false
-        window.alert('Forbidden access! Please log in!');
-        this.router.navigateByUrl('/');
-        return localStorage.getItem('token') !== null;
-      }
+  login(email: string, password: string) {
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.loggedIn = false;
+    this.router.navigateByUrl('/login');
+  }
+
+  isLoggedIn() {
+    // verify if user is logedIn
+    if (localStorage.getItem('token') !== null ) {
+      // true
+      return localStorage.getItem('token') !== null;
+    } else {
+      // false
+      window.alert('Forbidden access! Please log in!');
+      this.router.navigateByUrl('/login');
+      return localStorage.getItem('token') !== null;
     }
+  }
 }

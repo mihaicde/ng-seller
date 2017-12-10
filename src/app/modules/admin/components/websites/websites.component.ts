@@ -4,19 +4,19 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { Product } from '../../../../models/Product';
-import { ProductService } from '../../services/product.service';
+import { Website } from '../../../../models/Website';
+import { WebsiteService } from '../../services/website.service';
 
 import { Notification } from '../../../../shared/models/Notification';
 import { NotificationService } from '../../../../shared/services/notification.service';
 import { NotificationComponent } from '../../../../shared/components/notification/notification.component';
 
-@Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html'
-})
 
-export class ProductsComponent implements OnInit {
+@Component({
+  selector: 'app-websites',
+  templateUrl: './websites.component.html'
+})
+export class WebsitesComponent implements OnInit {
 
   @ViewChild('modalCrud')
   childComponentCrud: ModalComponent;
@@ -24,10 +24,10 @@ export class ProductsComponent implements OnInit {
   @ViewChild('modalDelete')
   childComponentDelete: ModalComponent;
 
-  products: Product[];
+  websites: Website[];
   crudForm: FormGroup;
-  selectedProduct: Product;
-  deleteProduct: Product;
+  selectedWebsite: Website;
+  deleteWebsite: Website;
   edit = false;
 
   @ViewChild('toast')
@@ -35,7 +35,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private formBuilderService: FormBuilderService,
-    private productService: ProductService,
+    private websiteService: WebsiteService,
     private notifyService: NotificationService
   ) { }
 
@@ -43,17 +43,17 @@ export class ProductsComponent implements OnInit {
     this.crudForm.reset();
   }
 
-  openModalCrud(product: Product) {
+  openModalCrud(website: Website) {
     this.childComponentCrud.openModal();
-    if (product) {
-      this.childComponentCrud.title = 'Editeaza Produsul';
-      this.selectedProduct = product;
+    if (website) {
+      this.childComponentCrud.title = 'Editeaza Website-ul';
+      this.selectedWebsite = website;
       this.edit = true;
       this.crudForm.patchValue({
-        name: this.selectedProduct.name
+        name: this.selectedWebsite.name
       });
     }  else {
-      this.childComponentCrud.title = 'Adauga Produsul';
+      this.childComponentCrud.title = 'Adauga Website-ul';
     }
     console.log(this.crudForm);
   }
@@ -64,8 +64,8 @@ export class ProductsComponent implements OnInit {
     this.edit = false;
   }
 
-  openModalDelete(product: Product) {
-    this.deleteProduct = product;
+  openModalDelete(website: Website) {
+    this.deleteWebsite = website;
     this.childComponentDelete.openModal();
   }
 
@@ -74,11 +74,11 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.index()
+    this.websiteService.index()
     .subscribe(
-      (products: Product[]) => {
-        this.products = products;
-        console.log(this.products);
+      (websites: Website[]) => {
+        this.websites = websites;
+        console.log(this.websites);
       }
     );
 
@@ -87,11 +87,11 @@ export class ProductsComponent implements OnInit {
     });
 
     this.childComponentCrud.showFooter = false;
-    this.childComponentCrud.title = 'Adauga Produsul';
+    this.childComponentCrud.title = 'Adauga Website-ul';
   }
 
-  onDelete(product?: Product) {
-    this.productService.destroy(product)
+  onDelete(website?: Website) {
+    this.websiteService.destroy(website)
     .subscribe(
       data => {
         console.log(data);
@@ -107,27 +107,27 @@ export class ProductsComponent implements OnInit {
       if (this.edit) {
         console.log('editing....');
 
-        const product = new Product(JSON.parse(JSON.stringify({
-          id: this.selectedProduct.id,
+        const website = new Website(JSON.parse(JSON.stringify({
+          id: this.selectedWebsite.id,
           name: this.crudForm.value.name
         })));
-        this.productService.update(product)
+        this.websiteService.update(website)
         .subscribe(
           data => {
             this.edit = false;
             console.log(data);
             this.notifyService.success(data.message);
-            for (let i = 0; i < this.products.length; i++) {
-              if (this.products[i].id === product.id) {
-                this.products[i].name = product.name;
+            for (let i = 0; i < this.websites.length; i++) {
+              if (this.websites[i].id === website.id) {
+                this.websites[i].name = website.name;
               }
             }
           },
           error => console.log(error)
         );
       } else {
-        const product = new Product(this.crudForm.value);
-        this.productService.store(product)
+        const website = new Website(this.crudForm.value);
+        this.websiteService.store(website)
         .subscribe(
             data => {
               this.notifyService.success(data.message);
@@ -144,5 +144,6 @@ export class ProductsComponent implements OnInit {
       this.formBuilderService.validateAllFormFields(this.crudForm);
     }
   }
+
 
 }

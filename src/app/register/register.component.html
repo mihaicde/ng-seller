@@ -23,7 +23,7 @@
             <input id="name" type="text" class="validate" formControlName="name">
             <label for="name">Name</label>
           </div>
-          <app-field-error-display [displayError]="isFieldValid('name')" errorMsg="Please enter your name">
+          <app-field-error-display [displayError]="formBuilderService.isFieldValid(registerForm, 'name')" errorMsg="Please enter your name">
           </app-field-error-display>
         </div>
         <div class="row">
@@ -32,7 +32,7 @@
             <input id="icon_email" type="text" class="validate" class="validate" formControlName="email">
             <label for="icon_email">Email</label>
           </div>
-          <app-field-error-display [displayError]="isFieldValid('email')" errorMsg="Email is required and format should be john@doe.com">
+          <app-field-error-display [displayError]="formBuilderService.isFieldValid(registerForm, 'email')" errorMsg="Email is required and format should be john@doe.com">
           </app-field-error-display>
         </div>
         <div class="row">
@@ -42,7 +42,7 @@
             <label for="icon_password">Password</label>
           </div>
         </div>
-        <app-field-error-display [displayError]="isFieldValid('password')" errorMsg="Please enter your password">
+        <app-field-error-display [displayError]="formBuilderService.isFieldValid(registerForm, 'password')" errorMsg="Please enter your password">
         </app-field-error-display>
         <div class="row">
           <!-- <button class="btn waves-effect waves-light cyan accent-3" type="submit" name="action" [disabled]="!registerForm.valid">register</button> -->

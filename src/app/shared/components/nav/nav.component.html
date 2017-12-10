@@ -15,8 +15,6 @@
         <li><div class="divider"></div></li>
         <app-website-side-nav></app-website-side-nav>
         <li><div class="divider"></div></li>
-        <app-admin-side-nav></app-admin-side-nav>
-
 
         <li><a class="collapsible-header waves-effect waves-pink"><i class="material-icons">folder</i>Catalog</a>
           <div class="collapsible-body productSubMenu">
@@ -26,15 +24,15 @@
               <li><a class="waves-effect waves" [routerLink]="['/specs']"><i class="material-icons">shop</i>Specificatii</a></li>
               <li><a class="waves-effect waves" [routerLink]="['/categories']"><i class="material-icons">collections</i>Categorii</a></li>
               <li><a class="waves-effect waves" [routerLink]="['/tags']"><i class="material-icons">burst_mode</i>Taguri</a></li>
-              <li><a class="waves-effect waves" [routerLink]="['/producs']"><i class="material-icons">shopping_cart</i>Produse</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/products']"><i class="material-icons">shopping_cart</i>Produse</a></li>
               <li><a class="waves-effect waves" [routerLink]="['/campaigns']"><i class="material-icons">card_giftcard</i>Campanii</a></li>
               <li><div class="divider"></div></li>
             </ul>
           </div>
         </li>
-        <li><a class="waves-effect waves"><i class="material-icons icon-blue">group</i>Clienti</a></li>
+        <li><a class="waves-effect waves" [routerLink]="['/customers']"><i class="material-icons icon-blue">group</i>Clienti</a></li>
         <li><a class="waves-effect waves"><i class="material-icons icon-blue">add_shopping_cart</i>Comenzi</a></li>
-        <li><a class="waves-effect waves"><i class="material-icons" routerLinkActive="active">person_add</i>Utilizatori</a></li>
+        <li><a class="waves-effect waves" [routerLink]="['/users']"><i class="material-icons" routerLinkActive="active">person_add</i>Utilizatori</a></li>
         <li><a class="waves-effect waves"><i class="material-icons">insert_chart</i>Rapoarte</a></li>
 
         <li><div class="divider"></div></li>

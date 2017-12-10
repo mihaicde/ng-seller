@@ -1,13 +1,14 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-// import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-// import { Observable } from 'rxjs/Observable';
-// import 'rxjs/add/operator/map';
-
 import { User } from '../models/User';
 import { AuthService } from '../shared/services/auth.service';
+import { FormBuilderService } from '../shared/services/form-builder.service';
+
+import { Notification } from '../shared/models/Notification';
+import { NotificationService } from '../shared/services/notification.service';
+import { NotificationComponent } from '../shared/components/notification/notification.component';
 
 @Component({
   selector: 'app-log-in',
@@ -15,26 +16,62 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
-  email: string;
-  password: string;
+
   loginForm: FormGroup;
-  // postsCol: AngularFirestoreCollection<Post>;
-  // posts: Observable<Post[]>;
 
-  constructor
-  (
+  @ViewChild('toast')
+  notificationComp: NotificationComponent;
+
+  constructor (
+    private formBuilderService: FormBuilderService,
     public authService: AuthService,
-    // private afs: AngularFirestore,
-    // private router: Router
+    private router: Router,
+    private notifyService: NotificationService
   ) {}
-    login() {
-      this.authService.login(this.email, this.password);
-      this.email = this.password = '';
-    }
 
-    logout() {
-      this.authService.logout();
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.email
+      ]),
+      password: new FormControl(null, Validators.required)
+    });
+  }
+
+  // login() {
+  //   this.authService.login(this.email, this.password);
+  // }
+
+  reset() {
+    this.loginForm.reset();
+  }
+
+  onLogin() {
+    if (this.loginForm.valid) {
+      console.log('form submitted');
+      const user = new User(this.loginForm.value);
+      console.log(user);
+      this.authService.auth(user, 'login')
+      .subscribe(
+          data => {
+            console.log(data);
+            this.router.navigate(['/']);
+          },
+          error => {
+            console.log(error[0].message);
+            this.notifyService.error(error[0].message);
+          }
+      );
+      this.reset();
+    } else {
+      this.formBuilderService.validateAllFormFields(this.loginForm);
     }
+  }
+
+  logout() {
+    this.authService.logout();
+  }
     // onSubmit() {
     //     const user = new User(this.myForm.value.email, this.myForm.value.password);
     //     this.authService.login(user.email, user.password)
@@ -49,16 +86,4 @@ export class LogInComponent implements OnInit {
     //         );
     //     this.myForm.reset();
     // }
-
-    ngOnInit() {
-      this.loginForm = new FormGroup({
-          email: new FormControl(null,
-            [
-              Validators.required,
-              Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-          ]),
-          password: new FormControl(null, Validators.required)
-      });
-    }
-
 }
