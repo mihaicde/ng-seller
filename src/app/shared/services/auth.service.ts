@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Router } from '@angular/router';
+import { JwtHelper} from 'angular2-jwt';
 
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
@@ -12,6 +13,7 @@ export class AuthService {
 
   private loggedIn = false;
   protected link = 'http://localhost:5555/';
+  private jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(
     private http: Http,
@@ -29,7 +31,19 @@ export class AuthService {
           console.log(res);
           if (res.token) {
             console.log(res.token.token);
+            const token = res.token.token;
+            console.log(
+              this.jwtHelper.decodeToken(token),
+              this.jwtHelper.getTokenExpirationDate(token),
+              this.jwtHelper.isTokenExpired(token)
+            );
+            const userDetails = this.jwtHelper.decodeToken(token).data;
+            const issuedAt = this.jwtHelper.decodeToken(token).iat;
+            const exp = this.jwtHelper.decodeToken(token).exp;
             localStorage.setItem('token', res.token.token);
+            localStorage.setItem('refreshToken', res.token.refreshToken);
+            localStorage.setItem('userDetails', userDetails);
+            localStorage.setItem('exp', exp);
             this.loggedIn = true;
             return res;
           }
