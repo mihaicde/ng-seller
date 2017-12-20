@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
+import { AuthService } from '../../../../shared/services/auth.service';
 import { Website } from '../../../../models/Website';
 import { WebsiteService } from '../../services/website.service';
 
@@ -18,12 +19,23 @@ import { NotificationComponent } from '../../../../shared/components/notificatio
 })
 export class WebsitesComponent implements OnInit {
 
+  websiteTypes: string[] =
+  [
+    'Restaurant',
+    'Imbracaminte',
+    'Medical',
+    'Electronice',
+    'Travel',
+    'Diferit'
+  ];
+
+
   @ViewChild('modalCrud')
   childComponentCrud: ModalComponent;
 
   @ViewChild('modalDelete')
   childComponentDelete: ModalComponent;
-
+  userDetails: any;
   websites: Website[];
   crudForm: FormGroup;
   selectedWebsite: Website;
@@ -35,6 +47,7 @@ export class WebsitesComponent implements OnInit {
 
   constructor(
     private formBuilderService: FormBuilderService,
+    private authService: AuthService,
     private websiteService: WebsiteService,
     private notifyService: NotificationService
   ) { }
@@ -50,10 +63,12 @@ export class WebsitesComponent implements OnInit {
       this.selectedWebsite = website;
       this.edit = true;
       this.crudForm.patchValue({
-        name: this.selectedWebsite.name
+        name: this.selectedWebsite.name,
+        domain: this.selectedWebsite.domain,
+        websiteType: this.selectedWebsite.websiteType
       });
     }  else {
-      this.childComponentCrud.title = 'Adauga Website-ul';
+      this.childComponentCrud.title = 'Creeaza un nou Website';
     }
     console.log(this.crudForm);
   }
@@ -74,16 +89,24 @@ export class WebsitesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userDetails = this.authService.getUser();
+    console.log(this.userDetails.id);
     this.websiteService.index()
     .subscribe(
       (websites: Website[]) => {
         this.websites = websites;
         console.log(this.websites);
+      },
+      error => {
+        console.log(error.error.message);
+        this.notifyService.error(error.error.message);
       }
     );
 
     this.crudForm = new FormGroup({
       name: new FormControl(null, Validators.required),
+      domain: new FormControl(null, Validators.required),
+      websiteType: new FormControl(null, Validators.required)
     });
 
     this.childComponentCrud.showFooter = false;
@@ -97,7 +120,10 @@ export class WebsitesComponent implements OnInit {
         console.log(data);
         this.notifyService.success(data.message);
       },
-      err => console.log(err)
+      error => {
+        console.log(error.error.message);
+        this.notifyService.error(error.error.message);
+      }
     );
     this.closeModalDelete();
   }
@@ -109,8 +135,12 @@ export class WebsitesComponent implements OnInit {
 
         const website = new Website(JSON.parse(JSON.stringify({
           id: this.selectedWebsite.id,
-          name: this.crudForm.value.name
+          name: this.crudForm.value.name,
+          domain: this.crudForm.value.domain,
+          websiteType: this.crudForm.value.websiteType,
+          user_id: this.userDetails.id
         })));
+        console.log(website);
         this.websiteService.update(website)
         .subscribe(
           data => {
@@ -120,21 +150,35 @@ export class WebsitesComponent implements OnInit {
             for (let i = 0; i < this.websites.length; i++) {
               if (this.websites[i].id === website.id) {
                 this.websites[i].name = website.name;
+                this.websites[i].domain = website.domain;
+                this.websites[i].websiteType = website.websiteType;
               }
             }
           },
-          error => console.log(error)
+          error => {
+            console.log(error.error.message);
+            this.notifyService.error(error.error.message);
+          }
         );
       } else {
-        const website = new Website(this.crudForm.value);
+        console.log(this.crudForm.value);
+        console.log(this.crudForm.value.domain);
+        console.log(this.crudForm.value.websiteType);
+        const website = new Website( JSON.parse(JSON.stringify({
+          name: this.crudForm.value.name,
+          domain: this.crudForm.value.domain,
+          websiteType: this.crudForm.value.websiteType,
+          user_id: this.userDetails.id
+        })));
+        console.log(website);
         this.websiteService.store(website)
         .subscribe(
             data => {
               this.notifyService.success(data.message);
             },
             error => {
-              console.log(error);
-              throw new Error(error);
+              console.log(error.error.message);
+              this.notifyService.error(error.error.message);
             }
         );
       }

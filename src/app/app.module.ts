@@ -27,6 +27,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { FormBuilderService } from './shared/services/form-builder.service';
 import { LoggedInGuard } from './shared/guards/singedin.guard';
+import { SelectWebsiteComponent } from './select-website/select-website.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { LoggedInGuard } from './shared/guards/singedin.guard';
     AppComponent,
     LogInComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SelectWebsiteComponent
   ],
   providers: [
     AuthService,

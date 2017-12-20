@@ -13,11 +13,43 @@
           <div class="input-field">
             <i class="material-icons prefix">account_box</i>
             <input id="name" type="text" class="validate" formControlName="name">
-            <label *ngIf="!edit" for="name">Name</label>
+            <label *ngIf="!edit" for="name">Nume</label>
           </div>
           <app-field-error-display
             [displayError]="formBuilderService.isFieldValid(crudForm, 'name')"
             errorMsg="Numele lipseste">
+          </app-field-error-display>
+        </div>
+        <div class="row">
+          <div class="input-field">
+              <i class="material-icons prefix">language</i>
+              <input id="domain" type="text" class="validate" formControlName="domain">
+              <label *ngIf="!edit" for="domain">Domeniu</label>
+          </div>
+          <app-field-error-display
+            [displayError]="formBuilderService.isFieldValid(crudForm, 'domain')"
+            errorMsg="Domeniul lipseste">
+          </app-field-error-display>
+        </div>
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">build</i>
+            <select materialize="material_select"
+              [materializeSelectOptions]="websiteTypes"
+              required
+              name="websiteType"
+              formControlName="websiteType">
+            <option value="" disabled selected>Categorie</option>
+            <option *ngFor="let websiteType of websiteTypes;"
+              [value]="websiteType">
+              {{websiteType}}
+            </option>
+            </select>
+            <label *ngIf="add" >Tipul de website</label>
+          </div>
+          <app-field-error-display
+            [displayError]="formBuilderService.isFieldValid(crudForm, 'websiteType')"
+            errorMsg="Tipul lipseste">
           </app-field-error-display>
         </div>
         <div class="row">
@@ -51,6 +83,8 @@
         <thead>
           <tr>
             <th data-field="product">Nume</th>
+            <th data-field="product">Domeniu</th>
+            <th data-field="product">Categorie</th>
             <th data-field="product">Editare</th>
             <th data-field="product">Stergere</th>
           </tr>
@@ -58,6 +92,8 @@
         <tbody>
         <tr *ngFor="let website of websites;">
           <td><strong>{{website.name}}</strong></td>
+          <td><strong>{{website.domain}}</strong></td>
+          <td><strong>{{website.websiteType}}</strong></td>
           <td>
             <a class="btn-floating btn-large waves-effect waves-light teal accent-4"
               (click)="openModalCrud(website)">

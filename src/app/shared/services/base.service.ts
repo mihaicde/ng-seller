@@ -3,6 +3,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { JwtHelper} from 'angular2-jwt';
 
 import { FactoryModel } from '../models/factory.model';
 
@@ -10,6 +11,7 @@ import { FactoryModel } from '../models/factory.model';
 export class BaseService {
   protected collection;
   protected link = 'http://localhost:5555';
+  private jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(protected http: Http) {
     console.log('Base service initialized');
@@ -22,11 +24,11 @@ export class BaseService {
     return headers;
   }
 
-  getToken() {
+  checkTokenExpired() {
     const token = localStorage.getItem('token');
-        //  ? '?token=' + localStorage.getItem('token')
-        //  : '';
-    return token;
+    // const refreshToken = localStorage.getItem('refreshToken');
+
+    return this.jwtHelper.isTokenExpired(token);
   }
 
   getModel(url: string, className: string) {
@@ -45,7 +47,12 @@ export class BaseService {
         }
         this.collection = transformedObject;
         return transformedObject;
-      });
+      })
+      .catch((err: Response) => {
+        console.log('eroare la serviciu');
+        console.log(err);
+        return Observable.throw(err.json());
+    });
   }
 
   addModel(url: string, object: any, className: string, parameters) {

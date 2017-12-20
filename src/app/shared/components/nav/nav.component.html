@@ -13,6 +13,12 @@
           </div>
         </li>
         <li><div class="divider"></div></li>
+        <li>
+          <div *ngIf="userDetails" class="userDetails">
+            <h6 class="center-align">Hello <b>{{userDetails.name}}</b> !</h6>
+          </div>
+        </li>
+        <li><div class="divider"></div></li>
         <app-website-side-nav></app-website-side-nav>
         <li><div class="divider"></div></li>
 

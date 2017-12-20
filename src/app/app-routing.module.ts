@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LogInComponent } from './log-in/log-in.component';
+import { SelectWebsiteComponent } from './select-website/select-website.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -14,6 +15,7 @@ const APP_ROUTES: Routes = [
 
   { path: 'login', component: LogInComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'selectWebsite', component: SelectWebsiteComponent },
   { path: 'ui', loadChildren: './modules/ui-design/ui-design.module#UiDesignModule' },
   // { path: 'admin', component: AdminComponent, loadChildren: './admin/admin.module#AdminModule', canActivate: [LoggedInGuard] }
   { path: '**', component: PageNotFoundComponent }

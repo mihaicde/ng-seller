@@ -14,6 +14,7 @@ export class AuthService {
   private loggedIn = false;
   protected link = 'http://localhost:5555/';
   private jwtHelper: JwtHelper = new JwtHelper();
+  private userDetails = [];
 
   constructor(
     private http: Http,
@@ -37,13 +38,24 @@ export class AuthService {
               this.jwtHelper.getTokenExpirationDate(token),
               this.jwtHelper.isTokenExpired(token)
             );
-            const userDetails = this.jwtHelper.decodeToken(token).data;
+
+            this.userDetails = this.jwtHelper.decodeToken(token).data;
+            const userName = this.jwtHelper.decodeToken(token).data.name;
+            const userID = this.jwtHelper.decodeToken(token).data.id;
+            const userEmail = this.jwtHelper.decodeToken(token).data.email;
+            const userRole = this.jwtHelper.decodeToken(token).data.role;
+
             const issuedAt = this.jwtHelper.decodeToken(token).iat;
             const exp = this.jwtHelper.decodeToken(token).exp;
+
             localStorage.setItem('token', res.token.token);
             localStorage.setItem('refreshToken', res.token.refreshToken);
-            localStorage.setItem('userDetails', userDetails);
+            localStorage.setItem('userID', userID);
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('userEmail', userEmail);
+            localStorage.setItem('userRole', userRole);
             localStorage.setItem('exp', exp);
+
             this.loggedIn = true;
             return res;
           }
@@ -66,7 +78,7 @@ export class AuthService {
 
   isLoggedIn() {
     // verify if user is logedIn
-    if (localStorage.getItem('token') !== null ) {
+    if ( localStorage.getItem('token') !== null ) {
       // true
       return localStorage.getItem('token') !== null;
     } else {
@@ -74,6 +86,21 @@ export class AuthService {
       window.alert('Forbidden access! Please log in!');
       this.router.navigateByUrl('/login');
       return localStorage.getItem('token') !== null;
+    }
+  }
+
+  getUser() {
+    if ( localStorage.getItem('userID') !== null &&
+      localStorage.getItem('userName') !== null &&
+      localStorage.getItem('userEmail') !== null &&
+      localStorage.getItem('userRole') !== null) {
+      const userDetails = {
+        'id' : localStorage.getItem('userID'),
+        'name' : localStorage.getItem('userName'),
+        'email' : localStorage.getItem('userEmail'),
+        'role' : localStorage.getItem('userRole')
+      };
+      return userDetails;
     }
   }
 }
