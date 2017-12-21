@@ -1,12 +1,31 @@
 
 <div class="full-body valign-wrapper">
+
+  <app-modal #modal>
+    <div class="modal-body">
+      <span class="center-align">Enter your email address below and we'll send a link to reset your password.</span>
+      <form materialize [formGroup]="resetForm" (ngSubmit)="forgotPassword()">
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input id="reset_email" type="text" class="validate" class="validate" formControlName="email">
+            <label for="reset_email">Email</label>
+          </div>
+          <app-field-error-display 
+            [displayError]="formBuilderService.isFieldValid(resetForm, 'email')" 
+            errorMsg="Email is required and format should be john@doe.com">
+          </app-field-error-display>
+        </div>
+        <div class="row">
+          <button class="btn waves-effect waves-light cyan" type="submit" name="action">Trimite</button>
+        </div>
+      </form>
+    </div>
+  </app-modal>
+
   <app-notification #toast></app-notification>
+
   <div class="center-align z-depth-3 row loginForm galaxy">
-    <!-- <div class="row">
-      <div class="col">
-        <h4> -- login -- </h4>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col">
           <img src="/assets/images/denopi1.png" style="width:7rem; vertical-align:bottom;"/>
@@ -16,6 +35,10 @@
       </div>
     </div>
 
+    <div class="row">
+      <h4>Login</h4>
+    </div>
+
     <form materialize [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <div class="row">
         <div class="input-field">
@@ -23,7 +46,9 @@
           <input id="icon_email" type="text" class="validate" class="validate" formControlName="email">
           <label for="icon_email">Email</label>
         </div>
-        <app-field-error-display [displayError]="formBuilderService.isFieldValid(loginForm, 'email')" errorMsg="Email is required and format should be john@doe.com">
+        <app-field-error-display 
+          [displayError]="formBuilderService.isFieldValid(loginForm, 'email')" 
+          errorMsg="Email is required and format should be john@doe.com">
         </app-field-error-display>
       </div>
       <div class="row">
@@ -32,12 +57,35 @@
           <input id="icon_password" type="password" cclass="validate" formControlName="password">
           <label for="icon_password">Password</label>
         </div>
-        <app-field-error-display [displayError]="formBuilderService.isFieldValid(loginForm, 'password')" errorMsg="Please enter your password">
+        <app-field-error-display 
+          [displayError]="formBuilderService.isFieldValid(loginForm, 'password')" 
+          errorMsg="Please enter your password">
         </app-field-error-display>
       </div>
       <div class="row">
-        <button class="btn waves-effect waves-light cyan accent-3" type="submit" name="action" [disabled]="!loginForm.valid">Login</button>
+        <button class="btn waves-effect waves-light cyan" type="submit" name="action">Login</button>
       </div>
     </form>
+    <br/>
+    <div class="row">
+      <span>
+        <a class="forgotPassword" (click)="openModalCrud()">
+          Forgot your password?
+        </a>
+      </span>
+    </div>
+    <br/>
+    <div class="row">
+      <span>By logging in, you agree to our</span>
+    </div>
+    <div class="row">
+      <a [routerLink]="['/terms']">Termms & Conditions</a> and <a [routerLink]="['/policy']">Privacy Policy</a>
+    </div>
+    <br/>
+    <div class="divider"></div>
+    <br/>
+    <div class="row">
+      <span>Don't have an account? <a [routerLink]="['/register']">Sign Up</a></span>
+    </div>
   </div>
 </div>

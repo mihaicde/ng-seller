@@ -5,22 +5,27 @@ import { Router } from '@angular/router';
 import { User } from '../models/User';
 import { AuthService } from '../shared/services/auth.service';
 import { FormBuilderService } from '../shared/services/form-builder.service';
-// import { Notification } from '../shared/models/Notification';
-// import { NotificationService } from '../shared/services/notification.service';
-// import { NotificationComponent } from '../shared/components/notification/notification.component';
+
+import { Notification } from '../shared/models/Notification';
+import { NotificationService } from '../shared/services/notification.service';
+import { NotificationComponent } from '../shared/components/notification/notification.component';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
-  // @ViewChild('toast')
-  // notificationComp: NotificationComponent;
+  
   registerForm: FormGroup;
+
+  @ViewChild('toast')
+  notificationComp: NotificationComponent;
 
   constructor(
     private formBuilderService: FormBuilderService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
+    private notifyService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -50,8 +55,14 @@ export class RegisterComponent implements OnInit {
       console.log(user);
       this.authService.auth(user, 'register')
       .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+        data => {
+          console.log(data);
+          this.router.navigate(['/']);
+        },
+        error => {
+          console.log(error[0].message);
+          this.notifyService.error(error[0].message);
+        }
       );
       this.reset();
     } else {

@@ -103,4 +103,9 @@ export class AuthService {
       return userDetails;
     }
   }
+
+  resetPassword(email: string) {
+    console.log(email);
+    return 'new email';
+  }
 }

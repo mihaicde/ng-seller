@@ -11,11 +11,11 @@ import { Notification } from '../../../../shared/models/Notification';
 import { NotificationService } from '../../../../shared/services/notification.service';
 import { NotificationComponent } from '../../../../shared/components/notification/notification.component';
 
-
 @Component({
   selector: 'app-campaigns',
   templateUrl: './campaigns.component.html'
 })
+
 export class CampaignsComponent implements OnInit {
 
   @ViewChild('modalCrud')

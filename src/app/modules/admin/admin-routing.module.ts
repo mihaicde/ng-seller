@@ -20,10 +20,6 @@ import { WebsitesComponent } from './components/websites/websites.component';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-    // {
-    //   path: '',
-    //   component: MainComponent
-    // },
     {
       path: '',
       component: MainComponent,

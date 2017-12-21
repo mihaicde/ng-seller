@@ -1,19 +1,18 @@
-<!-- <app-notification #toast></app-notification> -->
 
   <div class="full-body valign-wrapper">
+    <app-notification #toast></app-notification>
     <div class="center-align z-depth-3 row loginForm galaxy">
-      <div class="row">
-        <!-- <div class="col">
-          <h4> -- register -- </h4>
-        </div> -->
-      </div>
       <div class="row">
         <div class="col">
             <img src="/assets/images/denopi1.png" style="width:7rem; vertical-align:bottom;"/>
         </div>
         <div class="col">
-            <span style="font-size:2.2rem;margin-top:30px; color:#18ffff;" class="my-wrapper valign-wrapper center-align"> register </span>
+            <span style="font-size:2.2rem;margin-top:30px; color:#18ffff;" class="my-wrapper valign-wrapper center-align"> denopi-shop </span>
         </div>
+      </div>
+  
+      <div class="row">
+        <h4>Sign Up</h4>
       </div>
 
       <form materialize [formGroup]="registerForm" (ngSubmit)="onRegister()">
@@ -46,8 +45,21 @@
         </app-field-error-display>
         <div class="row">
           <!-- <button class="btn waves-effect waves-light cyan accent-3" type="submit" name="action" [disabled]="!registerForm.valid">register</button> -->
-          <button class="btn waves-effect waves-light cyan accent-3" type="submit" name="action">register</button>
+          <button class="btn waves-effect waves-light cyan" type="submit" name="action">register</button>
         </div>
       </form>
+      <br/>
+      <div class="row">
+        <span>By joining, you agree to our</span>
+      </div>
+      <div class="row">
+        <a [routerLink]="['/terms']">Termms & Conditions</a> and <a [routerLink]="['/policy']">Privacy Policy</a>
+      </div>
+      <br/>
+      <div class="divider"></div>
+      <br/>
+      <div class="row">
+        <span>Already have an account? <a [routerLink]="['/login']">Log In</a></span>
+      </div>
     </div>
   </div>

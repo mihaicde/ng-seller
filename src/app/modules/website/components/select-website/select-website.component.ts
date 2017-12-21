@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ProgressWidthService } from '../../services/progress-width.service';
+
 @Component({
   selector: 'app-select-website',
   templateUrl: './select-website.component.html'
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class SelectWebsiteComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private progressServices: ProgressWidthService
+  ) { }
 
   ngOnInit() {
+    this.progressServices.setProgress('20%');
   }
 
 }

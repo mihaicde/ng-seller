@@ -19,7 +19,7 @@
   color: $fontColor;
 }
 
-.loginForm{
+.loginForm {
   /* margin-top:12%; */
   padding:30px;
   max-width:450px;
@@ -27,4 +27,8 @@
 
 .row {
   margin-bottom: 0px;
+}
+
+.forgotPassword {
+  cursor: pointer;
 }
