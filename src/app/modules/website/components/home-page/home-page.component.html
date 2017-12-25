@@ -1,3 +1,45 @@
-<p>
-  home-page works!
-</p>
+<div class="row">
+  <div class="center-div">
+    <div class="card z-depth-3 galaxy">
+      <div class="card-content white-text">
+        <span class="card-title center-align">Pagina de Acasa</span>
+        <p>
+          Pagina de Acasa reprezinta prima pagina pe care clientii o vor vedea 
+          cand vor accesa site-ul.
+        </p>
+        <p>
+          Aceasta poate fi in doua feluri:
+        </p>
+        <p>
+          - Pagina standard de Ecommerce, unde vor fi prezentate cele 
+          mai vandute/vizionate produse si un slideshow cu promotii.
+        </p>
+        <p>
+          - Pagina de Prezentare, o pagina diferita care va contine informatii 
+          despre site-ul dumneavoastra. 
+          Pagina de Prezentare va putea fi create ulterior in panoul de Administrare.
+        </p>
+        <p>
+          Alegeti una dintre cele doua variante de mai jos pentru a putea continua:
+        </p>
+        <br/>
+        <form materialize #f="ngForm">
+          <p>
+            <input class="with-gap" name="homePage" type="radio" id="home1" 
+              [(ngModel)]="homePage" value="ecommerce" (click)="select()"/>
+            <label for="home1">Pagina standard Ecommerce</label>
+          </p>
+          <br/>
+          <p>
+            <input class="with-gap" name="homePage" type="radio" id="home2" 
+              [(ngModel)]="homePage" value="view" (click)="select()"/>
+            <label for="home2">Pagina de Prezentare</label>
+          </p>
+        </form>
+      </div>
+      <div class="card-action">
+        <a [routerLink]="['/website/contact', homePage]" class="btn waves-effect waves-light cyan" type="submit" name="action">Urmatorul</a>
+      </div>
+    </div>
+  </div>
+</div>

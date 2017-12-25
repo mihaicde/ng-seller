@@ -4,7 +4,8 @@ export class Website {
   id: string;
   name: string;
   domain: string;
-  websiteType: string;
+  type: string;
+  category: string;
   user_id: number;
 
 
@@ -16,7 +17,8 @@ export class Website {
     this.id = Utils.getParam(data, 'id');
     this.name = Utils.getParam(data, 'name');
     this.domain = Utils.getParam(data, 'domain');
-    this.websiteType = Utils.getParam(data, 'websiteType');
+    this.type = Utils.getParam(data, 'type');
+    this.category = Utils.getParam(data, 'category');
     this.user_id = Utils.getParam(data, 'user_id');
   }
 
@@ -32,8 +34,12 @@ export class Website {
     return this.domain;
   };
 
-  getWebsiteType = function() {
-    return this.websiteType;
+  getType = function() {
+    return this.type;
+  };
+
+  getCategory = function() {
+    return this.category;
   };
 
   getUserId = function() {

@@ -10,6 +10,7 @@ import { NotificationComponent } from '.././../shared/components/notification/no
 import { NotificationService } from '../../shared/services/notification.service';
 import { CustomErrorHandler } from '../../shared/services/custom-error-handler';
 
+import { FieldErrorDisplayComponent } from '../../shared/components/field-error-display/field-error-display.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { CustomErrorHandler } from '../../shared/services/custom-error-handler';
   ],
   declarations: [
     ModalComponent,
-    NotificationComponent
+    NotificationComponent,
+    FieldErrorDisplayComponent
   ],
   providers: [
     NotificationService,
@@ -27,7 +29,8 @@ import { CustomErrorHandler } from '../../shared/services/custom-error-handler';
   exports: [
     CommonModule,
     ModalComponent,
-    NotificationComponent
+    NotificationComponent,
+    FieldErrorDisplayComponent
   ]
 })
 export class SharedModule { }

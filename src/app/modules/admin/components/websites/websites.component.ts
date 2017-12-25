@@ -19,8 +19,7 @@ import { NotificationComponent } from '../../../../shared/components/notificatio
 })
 export class WebsitesComponent implements OnInit {
 
-  websiteTypes: string[] =
-  [
+  categories: string[] = [
     'Restaurant',
     'Imbracaminte',
     'Medical',
@@ -29,6 +28,10 @@ export class WebsitesComponent implements OnInit {
     'Diferit'
   ];
 
+  types: string[] = [
+    'ecommerce',
+    'view'
+  ];
 
   @ViewChild('modalCrud')
   childComponentCrud: ModalComponent;
@@ -65,7 +68,8 @@ export class WebsitesComponent implements OnInit {
       this.crudForm.patchValue({
         name: this.selectedWebsite.name,
         domain: this.selectedWebsite.domain,
-        websiteType: this.selectedWebsite.websiteType
+        category: this.selectedWebsite.category,
+        type: this.selectedWebsite.type
       });
     }  else {
       this.childComponentCrud.title = 'Creeaza un nou Website';
@@ -106,7 +110,8 @@ export class WebsitesComponent implements OnInit {
     this.crudForm = new FormGroup({
       name: new FormControl(null, Validators.required),
       domain: new FormControl(null, Validators.required),
-      websiteType: new FormControl(null, Validators.required)
+      type: new FormControl(null, Validators.required),
+      category: new FormControl(null, Validators.required)
     });
 
     this.childComponentCrud.showFooter = false;
@@ -137,7 +142,8 @@ export class WebsitesComponent implements OnInit {
           id: this.selectedWebsite.id,
           name: this.crudForm.value.name,
           domain: this.crudForm.value.domain,
-          websiteType: this.crudForm.value.websiteType,
+          type: this.crudForm.value.type,
+          category: this.crudForm.value.category,
           user_id: this.userDetails.id
         })));
         console.log(website);
@@ -151,7 +157,8 @@ export class WebsitesComponent implements OnInit {
               if (this.websites[i].id === website.id) {
                 this.websites[i].name = website.name;
                 this.websites[i].domain = website.domain;
-                this.websites[i].websiteType = website.websiteType;
+                this.websites[i].type = website.type;
+                this.websites[i].category = website.category;
               }
             }
           },
@@ -161,13 +168,11 @@ export class WebsitesComponent implements OnInit {
           }
         );
       } else {
-        console.log(this.crudForm.value);
-        console.log(this.crudForm.value.domain);
-        console.log(this.crudForm.value.websiteType);
         const website = new Website( JSON.parse(JSON.stringify({
           name: this.crudForm.value.name,
           domain: this.crudForm.value.domain,
-          websiteType: this.crudForm.value.websiteType,
+          type: this.crudForm.value.type,
+          category: this.crudForm.value.category,
           user_id: this.userDetails.id
         })));
         console.log(website);

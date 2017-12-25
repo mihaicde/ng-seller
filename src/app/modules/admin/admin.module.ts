@@ -13,7 +13,6 @@ import { NavComponent } from '../../shared/components/nav/nav.component';
 import { WebsiteSideNavComponent } from './components/website-side-nav/website-side-nav.component';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { MainComponent } from './components/main/main.component';
-import { FieldErrorDisplayComponent } from '../../shared/components/field-error-display/field-error-display.component';
 
 // SHARED SERVICES
 import { FormBuilderService } from '../../shared/services/form-builder.service';
@@ -56,16 +55,12 @@ import { SpecsService } from './services/specs.service';
     ReactiveFormsModule,
     SharedModule
   ],
-  exports: [
-    FieldErrorDisplayComponent
-  ],
   declarations: [
     NavComponent,
     WebsiteSideNavComponent,
     TopNavComponent,
     MainComponent,
     TagsComponent,
-    FieldErrorDisplayComponent,
     AvailabilitiesComponent,
     FiltersComponent,
     SpecsComponent,

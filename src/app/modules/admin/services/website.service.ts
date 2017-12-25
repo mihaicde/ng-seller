@@ -22,4 +22,15 @@ export class WebsiteService extends BaseService {
     return this.updateModel('/websites', website, 'WEBSITE');
   }
 
+  getWebsite() {
+    if ( localStorage.getItem('websiteId') !== null &&
+      localStorage.getItem('websiteName') !== null) {
+      const websiteDetails = {
+        'id' : localStorage.getItem('websiteId'),
+        'name' : localStorage.getItem('websiteName')
+      };
+      return websiteDetails;
+    }
+  }
+
 }

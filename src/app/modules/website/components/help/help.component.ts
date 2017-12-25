@@ -8,12 +8,12 @@ import { FormBuilderService } from '../../../../shared/services/form-builder.ser
 import { ProgressWidthService } from '../../services/progress-width.service';
 
 @Component({
-  selector: 'app-contact-page',
-  templateUrl: './contact-page.component.html'
+  selector: 'app-help',
+  templateUrl: './help.component.html'
 })
-export class ContactPageComponent implements OnInit {
+export class HelpComponent implements OnInit {
 
-  homePage: string;
+  aboutPage: string;
   pagesForm: FormGroup;
 
   constructor(
@@ -25,18 +25,17 @@ export class ContactPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.progressServices.setProgress('70%');
+    this.progressServices.setProgress('90%');
     this.pagesForm = new FormGroup({
-      contactForm: new FormControl(true, Validators.required),
-      orderSchedule: new FormControl(true, Validators.required),
-      serviceSchedule: new FormControl(false, Validators.required),
-      showroomSchedule: new FormControl(false, Validators.required),
-      location: new FormControl(true, Validators.required),
-      maps: new FormControl(false, Validators.required),
+      instructions: new FormControl(true, Validators.required),
+      returnPolicy: new FormControl(true, Validators.required),
+      ordersPolicy: new FormControl(false, Validators.required),
+      shipmentPolicy: new FormControl(false, Validators.required),
+      complaints: new FormControl(true, Validators.required)
     });
     this.route.params.subscribe( params => { 
-      console.log(params.homePage);
-      this.homePage = params.homePage;
+      console.log(params.aboutPage);
+      this.aboutPage = params.aboutPage;
     });
   }
 
@@ -50,7 +49,7 @@ export class ContactPageComponent implements OnInit {
 
   onSubmit() {
     console.log(this.pagesForm.value);
-    this.router.navigate(['/website/about']);
+    this.router.navigate(['/website/finish']);
   }
 
 }

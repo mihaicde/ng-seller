@@ -9,7 +9,7 @@ import { FactoryModel } from '../models/factory.model';
 
 @Injectable()
 export class BaseService {
-  protected collection;
+  protected collection = [];
   protected link = 'http://localhost:5555';
   private jwtHelper: JwtHelper = new JwtHelper();
 

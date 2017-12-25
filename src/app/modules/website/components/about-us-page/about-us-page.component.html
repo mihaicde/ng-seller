@@ -1,4 +1,38 @@
-<p>
-  about-us-page works!
-  <a (click)="fireEvent()">Fire Event</a>
-</p>
+<div class="row">
+  <div class="center-div">
+    <div class="card z-depth-3 galaxy">
+      <div class="card-content white-text">
+        <span class="card-title center-align">Pagina Despre Noi</span>
+        <p>
+          Pagina Despre Noi contine dataliile website-ului. Ex: Cine suntem? Ce facem?
+        </p>
+        <p>
+          Doriti sa aveti pagina Despre Noi in aplicatie?
+        </p>
+        <br/>
+        <form materialize #f="ngForm">
+            <p>
+              <input class="with-gap" name="homePage" type="radio" id="home1" 
+                [(ngModel)]="aboutPage" value="true" (click)="select()"/>
+              <label for="home1">Da</label>
+      
+              <input class="with-gap" name="homePage" type="radio" id="home2" 
+                [(ngModel)]="aboutPage" value="false" (click)="select()"/>
+              <label for="home2">Nu</label>
+            </p>
+          </form>
+      </div>
+      <div class="card-action">
+        <button class="btn waves-effect waves-light purple darken-2" name="action"
+          (click)="back()">
+          <span>Inapoi</span>
+        </button>
+        <a [routerLink]="['/website/help', aboutPage]" 
+          class="btn waves-effect waves-light cyan" 
+          name="action">
+          <span>Urmatorul</span>
+        </a>       
+      </div>
+    </div>
+  </div>
+</div>

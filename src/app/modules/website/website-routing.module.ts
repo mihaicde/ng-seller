@@ -8,6 +8,7 @@ import { WebsiteDetailsComponent } from './components/website-details/website-de
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { AboutUsPageComponent } from './components/about-us-page/about-us-page.component';
+import { HelpComponent } from './components/help/help.component';
 import { WebsiteFinishComponent } from './components/website-finish/website-finish.component';
 
 const routes: Routes = [
@@ -29,7 +30,7 @@ const routes: Routes = [
         component: SelectWebsiteComponent
       },
       {
-        path: 'details',
+        path: 'details/:type',
         component: WebsiteDetailsComponent
       },
       {
@@ -37,12 +38,16 @@ const routes: Routes = [
         component: HomePageComponent
       },
       {
-        path: 'contact',
+        path: 'contact/:homePage',
         component: ContactPageComponent
       },
       {
         path: 'about',
         component: AboutUsPageComponent
+      },
+      {
+        path: 'help/:aboutPage',
+        component: HelpComponent
       },
       {
         path: 'finish',

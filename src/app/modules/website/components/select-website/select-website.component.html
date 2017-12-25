@@ -1,10 +1,15 @@
-<div class="full-body valign-wrapper">
+  <div class="row">
 
-  <!-- <div class="row z-depth-3 galaxy">
-    <h4 class="center-align">Va rog selectati Site-ul pe care doriti sa-l creati!</h4>
-  </div> -->
+    <div class="col s12 m12 l12">
+      <div class="card center-align z-depth-3 galaxy selectWebsiteHeader">
+        <h5 class="center-align">Va rog selectati tipul de site pe care doriti sa-l creati!</h5>
+      </div>
+    </div>
+
+  </div>
 
   <div class="row">
+
     <div class="col s12 m6 l6">
       <div class="card center-align z-depth-3 galaxy">
         <div class="card-content white-text">
@@ -13,22 +18,16 @@
           I am convenient because I require little markup to use effectively.</p>
         </div>
         <div class="card-action">
-          <button class="btn waves-effect waves-light cyan" type="submit" name="action">Creeaza</button>
+          <a 
+            class="btn waves-effect waves-light cyan"
+            [routerLink]="['/website/details', 'ecommerce']"
+            type="submit" name="action">
+            Creeaza
+          </a>
         </div>
       </div>
     </div>
-    <!-- <div class="col s12 m6 l4">
-      <div class="card center-align z-depth-3 galaxy">
-        <div class="card-content white-text">
-          <span class="card-title">Blog</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <button class="btn waves-effect waves-light cyan" type="submit" name="action">Creeaza</button>
-        </div>
-      </div>
-    </div> -->
+
     <div class="col s12 m6 l6">
       <div class="card center-align z-depth-3 galaxy">
         <div class="card-content white-text">
@@ -37,10 +36,15 @@
           I am convenient because I require little markup to use effectively.</p>
         </div>
         <div class="card-action">
-          <button class="btn waves-effect waves-light cyan" type="submit" name="action">Creeaza</button>
+          <a 
+            class="btn waves-effect waves-light cyan"
+            [routerLink]="['/website/details', 'view']"
+            type="submit" name="action">
+            Creeaza
+          </a>
         </div>
       </div>
     </div>
+
   </div>
-</div>
 

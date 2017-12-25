@@ -21,23 +21,40 @@
         <li><div class="divider"></div></li>
         <app-website-side-nav></app-website-side-nav>
         <li><div class="divider"></div></li>
-
-        <li><a class="collapsible-header waves-effect waves-pink"><i class="material-icons">folder</i>Catalog</a>
+        <li>
+          <div *ngIf="websiteDetails" class="userDetails">
+            <h6 class="center-align"><b>{{websiteDetails.name}}</b> !</h6>
+          </div>
+        </li>
+        <li><div class="divider"></div></li>
+        <li *ngIf="websiteDetails"><a class="collapsible-header waves-effect waves-pink"><i class="material-icons">content_paste</i>Pagini</a>
           <div class="collapsible-body productSubMenu">
             <ul>
-              <li><a class="waves-effect waves" [routerLink]="['/availabilities']"><i class="material-icons">shop</i>Disponibilitati</a></li>
-              <li><a class="waves-effect waves" [routerLink]="['/filters']"><i class="material-icons">shop</i>Filtre</a></li>
-              <li><a class="waves-effect waves" [routerLink]="['/specs']"><i class="material-icons">shop</i>Specificatii</a></li>
-              <li><a class="waves-effect waves" [routerLink]="['/categories']"><i class="material-icons">collections</i>Categorii</a></li>
-              <li><a class="waves-effect waves" [routerLink]="['/tags']"><i class="material-icons">burst_mode</i>Taguri</a></li>
-              <li><a class="waves-effect waves" [routerLink]="['/products']"><i class="material-icons">shopping_cart</i>Produse</a></li>
-              <li><a class="waves-effect waves" [routerLink]="['/campaigns']"><i class="material-icons">card_giftcard</i>Campanii</a></li>
-              <li><div class="divider"></div></li>
+              <li><a class="waves-effect waves" [routerLink]="['/page-home']"><i class="material-icons">description</i>Acasa</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/page-contact']"><i class="material-icons">description</i>Contact</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/page-about']"><i class="material-icons">description</i>Despre noi</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/page-help']"><i class="material-icons">description</i>Ajutor</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/page-websiteDetails']"><i class="material-icons">description</i>Detalii Website</a></li>
             </ul>
           </div>
         </li>
+        <li><div class="divider"></div></li>
+        <li *ngIf="websiteDetails"><a class="collapsible-header waves-effect waves-pink"><i class="material-icons">folder</i>Catalog</a>
+          <div class="collapsible-body productSubMenu">
+            <ul>
+              <li><a class="waves-effect waves" [routerLink]="['/availabilities']"><i class="material-icons">event_note</i>Disponibilitati</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/filters']"><i class="material-icons">filter_list</i>Filtre</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/specs']"><i class="material-icons">format_align_center</i>Specificatii</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/categories']"><i class="material-icons">collections</i>Categorii</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/tags']"><i class="material-icons">label</i>Taguri</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/products']"><i class="material-icons">shopping_cart</i>Produse</a></li>
+              <li><a class="waves-effect waves" [routerLink]="['/campaigns']"><i class="material-icons">card_giftcard</i>Campanii</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><div class="divider"></div></li>
         <li><a class="waves-effect waves" [routerLink]="['/customers']"><i class="material-icons icon-blue">group</i>Clienti</a></li>
-        <li><a class="waves-effect waves"><i class="material-icons icon-blue">add_shopping_cart</i>Comenzi</a></li>
+        <li><a class="waves-effect waves"><i class="material-icons icon-blue">shopping_basket</i>Comenzi</a></li>
         <li><a class="waves-effect waves" [routerLink]="['/users']"><i class="material-icons" routerLinkActive="active">person_add</i>Utilizatori</a></li>
         <li><a class="waves-effect waves"><i class="material-icons">insert_chart</i>Rapoarte</a></li>
 

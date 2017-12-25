@@ -1,6 +1,25 @@
  
- .websiteBuilder {
-     margin-left:0px;
-     margin-right:0px;
-     text-align:center;
+ .websiteMain {
+	padding: 10% 0;
+	// text-align: center;
+	margin:auto;
  }
+
+ .selectWebsiteHeader {
+	 padding:7px;
+ }
+
+ .progressStatus {
+	 padding-top:3rem;
+ }
+
+.center-div {
+	width: 66.66666667%;
+	margin: 0 auto;
+	float: none;
+}
+
+.contactPageForm p,
+.contactPageForm div {
+ padding-top:5px;
+}
