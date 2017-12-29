@@ -1,13 +1,13 @@
-import { Utils } from '../utils/Utils';
+import { Utils } from '../../utils/Utils';
 
-export class Campaign {
+export class Visibility {
   id: string;
   name: string;
 
 
   constructor(data?: JSON) {
     if (data === undefined || data === null) {
-      throw new Error('Undefined data');
+      return;
     }
 
     this.id = Utils.getParam(data, 'id');

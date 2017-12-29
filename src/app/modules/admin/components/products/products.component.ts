@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { Product } from '../../../../models/Product';
+import { Product } from '../../../../models/catalogue/Product';
 import { ProductService } from '../../services/product.service';
 
 import { Notification } from '../../../../shared/models/Notification';
@@ -130,7 +130,7 @@ export class ProductsComponent implements OnInit {
         this.productService.store(product)
         .subscribe(
             data => {
-              this.notifyService.success(data.message);
+              this.notifyService.success(data['message']);
             },
             error => {
               console.log(error);

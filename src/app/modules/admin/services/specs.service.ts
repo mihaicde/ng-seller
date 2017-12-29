@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Spec } from '../../../models/Spec';
+import { Spec } from '../../../models/catalogue/Spec';
 import { BaseService } from '../../../shared/services/base.service';
 
 @Injectable()

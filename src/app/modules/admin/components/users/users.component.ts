@@ -142,7 +142,7 @@ export class UsersComponent implements OnInit {
         this.userService.store(user)
         .subscribe(
             data => {
-              this.notifyService.success(data.message);
+              this.notifyService.success(data['message']);
             },
             error => {
               console.log(error);

@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { Category } from '../../../../models/Category';
+import { Category } from '../../../../models/catalogue/Category';
 import { CategoryService } from '../../services/category.service';
 
 import { Notification } from '../../../../shared/models/Notification';
@@ -129,7 +129,7 @@ export class CategoriesComponent implements OnInit {
         this.categoryService.store(category)
         .subscribe(
             data => {
-              this.notifyService.success(data.message);
+              this.notifyService.success(data['message']);
             },
             error => {
               console.log(error);

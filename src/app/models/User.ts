@@ -16,7 +16,6 @@ export class User {
     this.name = Utils.getParam(data, 'name');
     this.email = Utils.getParam(data, 'email');
     this.password = Utils.getParam(data, 'password');
-    this.role = Utils.getParam(data, 'role');
   }
 
   getId = function() {
@@ -31,7 +30,4 @@ export class User {
     return this.email;
   };
 
-  getRole = function() {
-    return this.role;
-  };
 }

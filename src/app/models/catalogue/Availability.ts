@@ -1,9 +1,8 @@
-import { Utils } from '../utils/Utils';
+import { Utils } from '../../utils/Utils';
 
-export class Visibility {
+export class Availability {
   id: string;
   name: string;
-
 
   constructor(data?: JSON) {
     if (data === undefined || data === null) {

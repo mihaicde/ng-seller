@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { Tag } from '../../../../models/Tag';
+import { Tag } from '../../../../models/catalogue/Tag';
 import { TagService } from '../../services/tags.service';
 
 import { Notification } from '../../../../shared/models/Notification';
@@ -144,7 +144,7 @@ export class TagsComponent implements OnInit {
         this.tagService.store(tag)
         .subscribe(
             data => {
-              this.notifyService.success(data.message);
+              this.notifyService.success(data['message']);
             },
             error => {
               console.log(error);

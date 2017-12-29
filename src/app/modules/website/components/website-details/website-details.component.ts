@@ -5,7 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Location } from '@angular/common';
 
 import { Website } from '../../../../models/Website';
-import { AuthService } from '../../../../shared/services/auth.service';
+import { AuthService } from '../../../../shared/services/auth/auth.service';
 import { WebsiteService } from '../../../../modules/admin/services/website.service';
 
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
@@ -80,11 +80,11 @@ export class WebsiteDetailsComponent implements OnInit {
       this.websiteService.store(website)
       .subscribe(
           data => {
-            console.log(data.obj.name);
-            this.websiteName = data.obj.name
-            this.websiteId = data.obj.id
-            localStorage.setItem('websiteName', data.obj.name);
-            localStorage.setItem('websiteId', data.obj.id);
+            console.log(data['obj'].name);
+            this.websiteName = data['obj'].name
+            this.websiteId = data['obj'].id
+            localStorage.setItem('websiteName', data['obj'].name);
+            localStorage.setItem('websiteId', data['obj'].id);
           },
           error => {
             console.log(error);

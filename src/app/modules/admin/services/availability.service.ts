@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
-import { Availability } from '../../../models/Availability';
+import { Availability } from '../../../models/catalogue/Availability';
 import { BaseService } from '../../../shared/services/base.service';
 
 @Injectable()

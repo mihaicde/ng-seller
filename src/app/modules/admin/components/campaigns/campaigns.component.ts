@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { Campaign } from '../../../../models/Campaign';
+import { Campaign } from '../../../../models/catalogue/Campaign';
 import { CampaignService } from '../../services/campaign.service';
 
 import { Notification } from '../../../../shared/models/Notification';
@@ -130,7 +130,7 @@ export class CampaignsComponent implements OnInit {
         this.campaignService.store(campaign)
         .subscribe(
             data => {
-              this.notifyService.success(data.message);
+              this.notifyService.success(data['message']);
             },
             error => {
               console.log(error);

@@ -1,13 +1,12 @@
-import { Utils } from '../utils/Utils';
+import { Utils } from '../../utils/Utils';
 
-export class Availability {
+export class Campaign {
   id: string;
   name: string;
 
-
   constructor(data?: JSON) {
     if (data === undefined || data === null) {
-      return;
+      throw new Error('Undefined data');
     }
 
     this.id = Utils.getParam(data, 'id');

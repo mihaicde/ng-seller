@@ -1,4 +1,10 @@
-import { Http, Response, Headers } from '@angular/http';
+import { 
+  HttpClient, 
+  HttpHeaders,
+  HttpErrorResponse,
+  HttpResponse
+} from '@angular/common/http';
+// import { Response } from '@angular/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -13,14 +19,12 @@ export class BaseService {
   protected link = 'http://localhost:5555';
   private jwtHelper: JwtHelper = new JwtHelper();
 
-  constructor(protected http: Http) {
+  constructor(protected http: HttpClient) {
     console.log('Base service initialized');
   }
 
   getHeaders() {
-    const headers =  new Headers({'Content-Type': 'application/json'});
-    const token = localStorage.getItem('token');
-    headers.append('Authorization', `Bearer ${token}`);
+    const headers =  new HttpHeaders({'Content-Type': 'application/json'});
     return headers;
   }
 
@@ -37,8 +41,9 @@ export class BaseService {
     url = this.buildUrl(url);
 
     return this.http.get(url, { headers })
-      .map((response: Response) => {
-        const objectResults = response.json().obj;
+      .map((response: HttpResponse<Object>) => {
+        const objectResults = response['obj'];
+        console.log(objectResults);
         const transformedObject = [];
         let model;
         for (const obj of objectResults){
@@ -48,11 +53,19 @@ export class BaseService {
         this.collection = transformedObject;
         return transformedObject;
       })
-      .catch((err: Response) => {
+      .catch((err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error.error.message}`);
+        }
         console.log('eroare la serviciu');
         console.log(err);
-        return Observable.throw(err.json());
-    });
+        return Observable.throw(err.error.error.message);
+      });
   }
 
   addModel(url: string, object: any, className: string, parameters) {
@@ -62,13 +75,26 @@ export class BaseService {
     url = this.buildUrl(url);
 
     return this.http.post(url, body, {headers: headers})
-      .map((response: Response) => {
-        const result = response.json();
+      .map((response: HttpResponse<any>) => {
+        const result = response;
         console.log(result);
-        const model = FactoryModel.getInstance().build(className, result.obj);
+        const model = FactoryModel.getInstance().build(className, result['obj']);
         console.log(model);
         this.collection.push(model);
         return result;
+      })
+      .catch((err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+        console.log('eroare la serviciu');
+        console.log(err);
+        return Observable.throw(err.error.message);
       });
   }
 
@@ -79,7 +105,20 @@ export class BaseService {
     url = this.buildUrl(url, object.id);
 
     return this.http.delete(url, {headers: headers})
-        .map((response: Response) => response.json());
+      .map((response: HttpResponse<any>) => response)
+      .catch((err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+        console.log('eroare la serviciu');
+        console.log(err);
+        return Observable.throw(err.error.message);
+      });
   }
 
   updateModel(url: string, object: any, className: string) {
@@ -89,17 +128,24 @@ export class BaseService {
     url = this.buildUrl(url, object.id);
 
     return this.http.put(url, body, {headers: headers})
-         .map((response: Response) => response.json());
+      .map((response: HttpResponse<any>) => response)
+      .catch((err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+        console.log('eroare la serviciu');
+        console.log(err);
+        return Observable.throw(err.error.message);
+      });
   }
-
-  // buildUrl(url: string, id?: any) {
-  //   const token = this.getToken();
-  //   return url + (typeof id !== 'undefined' ? '/' + id : '') + token;
-  // }
 
   buildUrl(url: string, id?: any) {
     url = this.link + url;
-    // const token = this.getToken();
     return url + (typeof id !== 'undefined' ? '/' + id : '');
   }
 

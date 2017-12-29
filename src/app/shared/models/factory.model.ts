@@ -1,11 +1,11 @@
 
-import { Tag } from '../../models/Tag';
-import { Availability } from '../../models/Availability';
-import { Campaign } from '../../models/Campaign';
-import { Category } from '../../models/Category';
-import { Filter } from '../../models/Filter';
-import { Spec } from '../../models/Spec';
-import { Product } from '../../models/Product';
+import { Tag } from '../../models/catalogue/Tag';
+import { Availability } from '../../models/catalogue/Availability';
+import { Campaign } from '../../models/catalogue/Campaign';
+import { Category } from '../../models/catalogue/Category';
+import { Filter } from '../../models/catalogue/Filter';
+import { Spec } from '../../models/catalogue/Spec';
+import { Product } from '../../models/catalogue/Product';
 import { Website } from '../../models/Website';
 import { User } from '../../models/User';
 import { Role } from '../../models/Role';

@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { AuthService } from '../../../../shared/services/auth.service';
+import { AuthService } from '../../../../shared/services/auth/auth.service';
 import { Website } from '../../../../models/Website';
 import { WebsiteService } from '../../services/website.service';
 
@@ -93,6 +93,7 @@ export class WebsitesComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Change here the values from local storage based on action
     this.userDetails = this.authService.getUser();
     console.log(this.userDetails.id);
     this.websiteService.index()
@@ -102,8 +103,8 @@ export class WebsitesComponent implements OnInit {
         console.log(this.websites);
       },
       error => {
-        console.log(error.error.message);
-        this.notifyService.error(error.error.message);
+        console.log(error);
+        // this.notifyService.error(error.error.message);
       }
     );
 
@@ -126,8 +127,8 @@ export class WebsitesComponent implements OnInit {
         this.notifyService.success(data.message);
       },
       error => {
-        console.log(error.error.message);
-        this.notifyService.error(error.error.message);
+        console.log(error);
+        this.notifyService.error(error);
       }
     );
     this.closeModalDelete();
@@ -179,7 +180,7 @@ export class WebsitesComponent implements OnInit {
         this.websiteService.store(website)
         .subscribe(
             data => {
-              this.notifyService.success(data.message);
+              this.notifyService.success(data['message']);
             },
             error => {
               console.log(error.error.message);

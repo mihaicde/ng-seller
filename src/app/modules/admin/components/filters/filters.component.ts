@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { Filter } from '../../../../models/Filter';
+import { Filter } from '../../../../models/catalogue/Filter';
 import { FilterService } from '../../services/filter.service';
 
 import { Notification } from '../../../../shared/models/Notification';
@@ -128,7 +128,7 @@ export class FiltersComponent implements OnInit {
         this.filterService.store(filter)
         .subscribe(
             data => {
-              this.notifyService.success(data.message);
+              this.notifyService.success(data['message']);
             },
             error => {
               console.log(error);

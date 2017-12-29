@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
 import { Location } from '@angular/common';
 
+import { HelpPage } from '../../../../models/pages/Help';
+import { BaseContent } from '../../../../models/pages/BaseContent';
+
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 import { ProgressWidthService } from '../../services/progress-width.service';
 
@@ -49,6 +52,28 @@ export class HelpComponent implements OnInit {
 
   onSubmit() {
     console.log(this.pagesForm.value);
+    const helpPage = new HelpPage(JSON.parse(JSON.stringify({
+      active: true,
+      instructions: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.instructions,
+      }))),
+      returnPolicy: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.returnPolicy,
+      }))),
+      ordersPolicy: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.ordersPolicy,
+        content: ''
+      }))),
+      shipmentPolicy: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.shipmentPolicy,
+        content: ''
+      }))),
+      complaints: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.complaints,
+        content: ''
+      })))
+    })));
+    console.log(helpPage);
     this.router.navigate(['/website/finish']);
   }
 

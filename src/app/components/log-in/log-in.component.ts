@@ -2,14 +2,14 @@ import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { User } from '../models/User';
-import { AuthService } from '../shared/services/auth.service';
-import { FormBuilderService } from '../shared/services/form-builder.service';
+import { User } from '../../models/User';
+import { AuthService } from '../../shared/services/auth/auth.service';
+import { FormBuilderService } from '../../shared/services/form-builder.service';
 
-import { ModalComponent } from '../shared/components/modal/modal.component';
-import { Notification } from '../shared/models/Notification';
-import { NotificationService } from '../shared/services/notification.service';
-import { NotificationComponent } from '../shared/components/notification/notification.component';
+import { ModalComponent } from '../../shared/components/modal/modal.component';
+import { Notification } from '../../shared/models/Notification';
+import { NotificationService } from '../../shared/services/notification.service';
+import { NotificationComponent } from '../../shared/components/notification/notification.component';
 
 @Component({
   selector: 'app-log-in',

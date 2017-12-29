@@ -1,6 +1,6 @@
-import { Utils } from '../utils/Utils';
+import { Utils } from '../../utils/Utils';
 
-export class Category {
+export class Spec {
   id: string;
   name: string;
 

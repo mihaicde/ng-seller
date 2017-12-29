@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Campaign } from '../../../models/Campaign';
+import { Campaign } from '../../../models/catalogue/Campaign';
 import { BaseService } from '../../../shared/services/base.service';
 
 @Injectable()

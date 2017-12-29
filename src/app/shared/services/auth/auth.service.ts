@@ -1,20 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, Request } from '@angular/http';
 import { Router } from '@angular/router';
 import { JwtHelper} from 'angular2-jwt';
+import { tokenNotExpired } from 'angular2-jwt';
 
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 
-import { User } from '../../models/User';
+import { User } from '../../../models/User';
 
 @Injectable()
 export class AuthService {
 
   private loggedIn = false;
-  protected link = 'http://localhost:5555/';
+  public link = 'http://localhost:5555/';
   private jwtHelper: JwtHelper = new JwtHelper();
   private userDetails = [];
+
+  cachedRequests: Array<Request> = [];
+
+  public collectFailedRequest(request): void {
+    this.cachedRequests.push(request);
+  }
+
+  public retryFailedRequests(): void {
+    // retry the requests. this method can
+    // be called after the token is refreshed
+  }
 
   constructor(
     private http: Http,
@@ -67,7 +79,32 @@ export class AuthService {
         });
   }
 
-  login(email: string, password: string) {
+  refreshToken() {
+    console.log('refresh token accessed');
+    var data = {refreshToken: this.getRefreshToken()};
+    const body = JSON.stringify(data);
+    console.log('Refresh token: ' + body);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const url = this.link + 'refresh';
+    console.log(url);
+
+    return this.http.post(url, body, {headers: headers})
+      .map((response: Response) => {
+        console.log('We have a response from the server');
+        const res = response.json();
+        console.log(res);
+        if (res.token) {
+          console.log(res.token.token);
+          const token = res.token.token;
+    
+          return token;
+        }
+      })
+      .catch((err: Response) => {
+          console.log('eroare la jwt retry');
+          console.log(err);
+          return Observable.throw(err.json());
+      });
   }
 
   logout() {
@@ -76,17 +113,28 @@ export class AuthService {
     this.router.navigateByUrl('/login');
   }
 
+  getToken(): string {
+    return localStorage.getItem('token');
+  }
+
+  getRefreshToken(): string {
+    return localStorage.getItem('refreshToken');
+  }
+
+  // isLoggedIn() {
+  //   // verify if user is logedIn
+  //   if ( localStorage.getItem('token') !== null ) {
+  //     // true
+  //     return localStorage.getItem('token') !== null;
+  //   } else {
+  //     window.alert('Forbidden access! Please log in!');
+  //     this.router.navigateByUrl('/login');
+  //     return localStorage.getItem('token') !== null;
+  //   }
+  // }
+
   isLoggedIn() {
-    // verify if user is logedIn
-    if ( localStorage.getItem('token') !== null ) {
-      // true
-      return localStorage.getItem('token') !== null;
-    } else {
-      // false
-      window.alert('Forbidden access! Please log in!');
-      this.router.navigateByUrl('/login');
-      return localStorage.getItem('token') !== null;
-    }
+    return tokenNotExpired();
   }
 
   getUser() {

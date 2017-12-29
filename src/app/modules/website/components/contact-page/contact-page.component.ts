@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
 import { Location } from '@angular/common';
 
+import { ContactPage } from '../../../../models/pages/Contact';
+import { BaseContent } from '../../../../models/pages/BaseContent';
+
 import { FormBuilderService } from '../../../../shared/services/form-builder.service';
 import { ProgressWidthService } from '../../services/progress-width.service';
 
@@ -50,6 +53,28 @@ export class ContactPageComponent implements OnInit {
 
   onSubmit() {
     console.log(this.pagesForm.value);
+    const contactPage = new ContactPage(JSON.parse(JSON.stringify({
+      active: true,
+      contactForm: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.contactForm,
+      }))),
+      orderSchedule: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.orderSchedule,
+      }))),
+      serviceSchedule: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.serviceSchedule,
+      }))),
+      showroomSchedule: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.showroomSchedule,
+      }))),
+      location: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.location,
+      }))),
+      maps: new BaseContent(JSON.parse(JSON.stringify({
+        active: this.pagesForm.value.maps,
+      })))
+    })));
+    console.log(contactPage);
     this.router.navigate(['/website/about']);
   }
 

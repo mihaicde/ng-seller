@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
-import { Tag } from '../../../models/Tag';
+import { Tag } from '../../../models/catalogue/Tag';
 import { BaseService } from '../../../shared/services/base.service';
 
 @Injectable()
