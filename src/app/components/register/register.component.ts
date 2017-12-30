@@ -15,7 +15,7 @@ import { NotificationComponent } from '../../shared/components/notification/noti
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
-  
+
   registerForm: FormGroup;
 
   @ViewChild('toast')
@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.router.navigate(['/']);
+          this.router.navigate(['/website']);
         },
         error => {
           console.log(error[0].message);

@@ -79,33 +79,32 @@ export class AuthService {
         });
   }
 
-  refreshToken() {
-    console.log('refresh token accessed');
-    var data = {refreshToken: this.getRefreshToken()};
-    const body = JSON.stringify(data);
-    console.log('Refresh token: ' + body);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const url = this.link + 'refresh';
-    console.log(url);
+  // refreshToken() {
+  //   console.log('refresh token accessed');
+  //   let data = {refreshToken: this.getRefreshToken()};
+  //   const body = JSON.stringify(data);
+  //   console.log('Refresh token: ' + body);
+  //   const headers = new Headers({'Content-Type': 'application/json'});
+  //   const url = this.link + 'refresh';
+  //   console.log(url);
 
-    return this.http.post(url, body, {headers: headers})
-      .map((response: Response) => {
-        console.log('We have a response from the server');
-        const res = response.json();
-        console.log(res);
-        if (res.token) {
-          console.log(res.token.token);
-          const token = res.token.token;
-    
-          return token;
-        }
-      })
-      .catch((err: Response) => {
-          console.log('eroare la jwt retry');
-          console.log(err);
-          return Observable.throw(err.json());
-      });
-  }
+  //   return this.http.post(url, body, {headers: headers})
+  //     .map((response: Response) => {
+  //       console.log('We have a response from the server');
+  //       const res = response.json();
+  //       console.log(res);
+  //       if (res.token) {
+  //         console.log(res.token.token);
+  //         const token = res.token.token;
+  //         return token;
+  //       }
+  //     })
+  //     .catch((err: Response) => {
+  //         console.log('eroare la jwt retry');
+  //         console.log(err);
+  //         return Observable.throw(err.json());
+  //     });
+  // }
 
   logout() {
     localStorage.removeItem('token');
