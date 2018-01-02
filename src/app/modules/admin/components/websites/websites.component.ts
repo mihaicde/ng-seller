@@ -95,7 +95,6 @@ export class WebsitesComponent implements OnInit {
   ngOnInit() {
     // Change here the values from local storage based on action
     this.userDetails = this.authService.getUser();
-    console.log(this.userDetails.id);
     this.websiteService.index()
     .subscribe(
       (websites: Website[]) => {
@@ -123,11 +122,11 @@ export class WebsitesComponent implements OnInit {
     this.websiteService.destroy(website)
     .subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.notifyService.success(data.message);
       },
       error => {
-        console.log(error);
+        // console.log(error);
         this.notifyService.error(error);
       }
     );

@@ -19,7 +19,7 @@ const APP_ROUTES: Routes = [
   { path: 'terms', component: TermsAndConditionsComponent },
   { path: 'policy', component: PrivacyPolicyComponent },
   { path: 'ui', loadChildren: './modules/ui-design/ui-design.module#UiDesignModule' },
-  { path: 'website', loadChildren: './modules/website/website.module#WebsiteModule', canActivate: [LoggedInGuard] },
+  { path: 'website', loadChildren: './modules/website/website.module#WebsiteModule' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -1,7 +1,6 @@
 import { Utils } from '../../utils/Utils';
 
 export class AboutPage {
-  active: boolean;
   content: string;
   imageUrl: string;
   
@@ -11,14 +10,9 @@ export class AboutPage {
       return;
     }
 
-    this.active = Utils.getParam(data, 'active');
     this.content = Utils.getParam(data, 'content');
     this.imageUrl = Utils.getParam(data, 'imageUrl');
   }
-
-  getActive = function() {
-    return this.active;
-  };
 
   getContent = function() {
     return this.content;

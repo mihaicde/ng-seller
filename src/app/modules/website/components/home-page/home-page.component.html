@@ -26,19 +26,24 @@
         <form materialize #f="ngForm">
           <p>
             <input class="with-gap" name="homePage" type="radio" id="home1" 
-              [(ngModel)]="homePage" value="ecommerce" (click)="select()"/>
+              [(ngModel)]="homePage" value="ecommerce"/>
             <label for="home1">Pagina standard Ecommerce</label>
           </p>
           <br/>
           <p>
             <input class="with-gap" name="homePage" type="radio" id="home2" 
-              [(ngModel)]="homePage" value="view" (click)="select()"/>
+              [(ngModel)]="homePage" value="view"/>
             <label for="home2">Pagina de Prezentare</label>
           </p>
         </form>
       </div>
       <div class="card-action">
-        <a [routerLink]="['/website/contact', homePage]" class="btn waves-effect waves-light cyan" type="submit" name="action">Urmatorul</a>
+        <button (click)="select()" 
+          class="btn waves-effect waves-light cyan" 
+          type="submit" name="action" 
+          [disabled]="!homePage">
+          <span>Urmatorul</span>
+        </button>
       </div>
     </div>
   </div>

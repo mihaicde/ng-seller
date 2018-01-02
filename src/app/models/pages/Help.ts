@@ -2,7 +2,6 @@ import { Utils } from '../../utils/Utils';
 import { BaseContent } from './BaseContent';
 
 export class HelpPage {
-  active: boolean;
   content: string;
   instructions: Array<BaseContent>;
   returnPolicy: Array<BaseContent>;
@@ -15,7 +14,6 @@ export class HelpPage {
       return;
     }
 
-    this.active = Utils.getParam(data, 'active');
     this.content = Utils.getParam(data, 'content');
     this.instructions = Utils.getParam(data, 'instructions');
     this.returnPolicy = Utils.getParam(data, 'returnPolicy');
@@ -23,10 +21,6 @@ export class HelpPage {
     this.shipmentPolicy = Utils.getParam(data, 'shipmentPolicy');
     this.complaints = Utils.getParam(data, 'complaints');
   }
-
-  getActive = function() {
-    return this.active;
-  };
 
   getContent = function() {
     return this.content;

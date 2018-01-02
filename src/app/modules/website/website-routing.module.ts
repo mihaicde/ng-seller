@@ -38,7 +38,7 @@ const routes: Routes = [
         component: HomePageComponent
       },
       {
-        path: 'contact/:homePage',
+        path: 'contact',
         component: ContactPageComponent
       },
       {
@@ -46,7 +46,7 @@ const routes: Routes = [
         component: AboutUsPageComponent
       },
       {
-        path: 'help/:aboutPage',
+        path: 'help',
         component: HelpComponent
       },
       {

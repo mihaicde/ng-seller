@@ -2,6 +2,7 @@ import {
   HttpClient, 
   HttpHeaders,
   HttpErrorResponse,
+  HttpParams,
   HttpResponse
 } from '@angular/common/http';
 // import { Response } from '@angular/http';
@@ -12,6 +13,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { JwtHelper} from 'angular2-jwt';
 
 import { FactoryModel } from '../models/factory.model';
+import { RequestOptions } from '@angular/http/src/base_request_options';
 
 @Injectable()
 export class BaseService {
@@ -35,12 +37,26 @@ export class BaseService {
     return this.jwtHelper.isTokenExpired(token);
   }
 
-  getModel(url: string, className: string) {
+  getModel(url: string, className: string, param?: string) {
     const headers = this.getHeaders();
+    
+    let requestOptions = {
+      headers: headers,
+      params: new HttpParams()
+    };
+
+    if(param) {
+      requestOptions = {
+        headers: headers,
+        params: new HttpParams().set('id', param)
+      };
+    }
+    console.log('muie');
+    console.log(requestOptions);
 
     url = this.buildUrl(url);
 
-    return this.http.get(url, { headers })
+    return this.http.get(url, requestOptions)
       .map((response: HttpResponse<Object>) => {
         const objectResults = response['obj'];
         console.log(objectResults);
@@ -94,7 +110,8 @@ export class BaseService {
         }
         console.log('eroare la serviciu');
         console.log(err);
-        return Observable.throw(err.error.message);
+        console.log(err.error.error.message);
+        return Observable.throw(err.error.error.message);
       });
   }
 

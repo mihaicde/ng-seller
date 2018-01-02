@@ -2,7 +2,6 @@ import { Utils } from '../../utils/Utils';
 import { BaseContent } from './BaseContent';
 
 export class ContactPage {
-  active: boolean;
   content: string;
   contactForm: Array<BaseContent>;
   orderSchedule: Array<BaseContent>;
@@ -17,7 +16,6 @@ export class ContactPage {
       return;
     }
 
-    this.active = Utils.getParam(data, 'active');
     this.content = Utils.getParam(data, 'content');
     this.contactForm = Utils.getParam(data, 'contactForm');
     this.orderSchedule = Utils.getParam(data, 'orderSchedule');
@@ -26,10 +24,6 @@ export class ContactPage {
     this.location = Utils.getParam(data, 'location');
     this.maps = Utils.getParam(data, 'maps');
   }
-
-  getActive = function() {
-    return this.active;
-  };
 
   getContent = function() {
     return this.content;

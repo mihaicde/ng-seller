@@ -1,4 +1,5 @@
 
+// Catalog models
 import { Tag } from '../../models/catalogue/Tag';
 import { Availability } from '../../models/catalogue/Availability';
 import { Campaign } from '../../models/catalogue/Campaign';
@@ -9,8 +10,11 @@ import { Product } from '../../models/catalogue/Product';
 import { Website } from '../../models/Website';
 import { User } from '../../models/User';
 import { Role } from '../../models/Role';
-// var category = FactoryModel.getInstance().build(className, parameters);
+// They are called: var category = FactoryModel.getInstance().build(className, parameters);
 
+// Pages models
+import { BaseContent } from '../../models/pages/BaseContent';
+import { Page } from '../../models/pages/Page';
 
 export class FactoryModel {
     protected static instance = null;
@@ -47,6 +51,10 @@ export class FactoryModel {
         return new User(parameters);
         case 'ROLE':
         return new Role(parameters);
+        case 'BASEPAGE':
+        return new BaseContent(parameters);
+        case 'PAGE':
+        return new Page(parameters);
       }
     }
 }

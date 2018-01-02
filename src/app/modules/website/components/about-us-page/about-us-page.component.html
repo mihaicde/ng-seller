@@ -12,13 +12,13 @@
         <br/>
         <form materialize #f="ngForm">
             <p>
-              <input class="with-gap" name="homePage" type="radio" id="home1" 
-                [(ngModel)]="aboutPage" value="true" (click)="select()"/>
-              <label for="home1">Da</label>
+              <input class="with-gap" name="aboutPage" type="radio" id="about1" 
+                [(ngModel)]="aboutPage" value="1"/>
+              <label for="about1">Da</label>
       
-              <input class="with-gap" name="homePage" type="radio" id="home2" 
-                [(ngModel)]="aboutPage" value="false" (click)="select()"/>
-              <label for="home2">Nu</label>
+              <input class="with-gap" name="aboutPage" type="radio" id="about2" 
+                [(ngModel)]="aboutPage" value="0"/>
+              <label for="about2">Nu</label>
             </p>
           </form>
       </div>
@@ -27,11 +27,12 @@
           (click)="back()">
           <span>Inapoi</span>
         </button>
-        <a [routerLink]="['/website/help', aboutPage]" 
+        <button (click)="select()" 
           class="btn waves-effect waves-light cyan" 
-          name="action">
+          type="submit" name="action" 
+          [disabled]="!aboutPage">
           <span>Urmatorul</span>
-        </a>       
+        </button> 
       </div>
     </div>
   </div>

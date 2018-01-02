@@ -19,6 +19,14 @@ import { AboutUsPageComponent } from './components/about-us-page/about-us-page.c
 import { HelpComponent } from './components/help/help.component';
 import { WebsiteFinishComponent } from './components/website-finish/website-finish.component';
 
+// Website Services
+import { HomePresentationPageService } from './services/home-presentation-page.service';
+import { HomeEcommercePageService } from './services/home-ecommerce-page.service';
+import { AboutPageService } from './services/about-page.service';
+import { ContactPageService } from './services/contact-page.service';
+import { HelpPageService } from './services/help-page.service';
+import { PageService } from './services/page.service';
+
 // SHARED SERVICES
 import { FormBuilderService } from '../../shared/services/form-builder.service';
 
@@ -46,7 +54,13 @@ import { ProgressWidthService } from './services/progress-width.service';
   ],
   providers: [
     FormBuilderService,
-    ProgressWidthService
+    ProgressWidthService,
+    HomePresentationPageService,
+    HomeEcommercePageService,
+    AboutPageService,
+    ContactPageService,
+    HelpPageService,
+    PageService
   ]
 })
 export class WebsiteModule { }
