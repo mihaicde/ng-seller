@@ -9,9 +9,9 @@
 	 padding:7px;
  }
 
- .progressStatus {
-	 padding-top:3rem;
- }
+//  .progressStatus {
+// 	 padding-top:3rem;
+//  }
 
 .center-div {
 	width: 66.66666667%;
@@ -21,5 +21,10 @@
 
 .contactPageForm p,
 .contactPageForm div {
- padding-top:5px;
+	padding-top:5px;
+}
+
+
+.router-cards {
+	min-height:500px;
 }

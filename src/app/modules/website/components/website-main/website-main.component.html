@@ -1,22 +1,29 @@
-<div class="full-body websiteBuilder">
-  <div class="websiteMain container">
-    <!-- <div class="row">
-      <a [routerLink]="['helpUs']" class="waves-effect waves-light btn">Help</a>
-      <a [routerLink]="['select']" class="waves-effect waves-light btn">Select</a>
-      <a [routerLink]="['details']" class="waves-effect waves-light btn">Details</a>
-      <a [routerLink]="['home']" class="waves-effect waves-light btn">Home</a>
-      <a [routerLink]="['contact']" class="waves-effect waves-light btn">Contact</a>
-      <a [routerLink]="['about']" class="waves-effect waves-light btn">About</a>
-      <a [routerLink]="['finish']" class="waves-effect waves-light btn">Finish</a>
-    </div> -->
-    <router-outlet></router-outlet>
-    <div class="progressStatus">
-      <div class="row">
-        <h5 class="center-align">Progress: {{progressService.progressWidth}}</h5>
+  
+  <div class="full-body websiteBuilder">
+    
+    <div class="websiteMain">
+
+      <div class="row container center-align">
+        <a [routerLink]="['helpUs']" class="waves-effect waves-light btn">Help</a>
+        <a [routerLink]="['select']" class="waves-effect waves-light btn">Select</a>
+        <a [routerLink]="['details']" class="waves-effect waves-light btn">Details</a>
+        <a [routerLink]="['home']" class="waves-effect waves-light btn">Home</a>
+        <a [routerLink]="['contact']" class="waves-effect waves-light btn">Contact</a>
+        <a [routerLink]="['about']" class="waves-effect waves-light btn">About</a>
+        <a [routerLink]="['finish']" class="waves-effect waves-light btn">Finish</a>
       </div>
-      <div class="progress">
-        <div class="determinate" [style.width]="progressService.progressWidth"></div>
+      
+      <div class="router-cards" [@routerTransition]="getState(o)">
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
+    
+      <div class="progressStatus container">
+        <div class="row">
+          <h5 class="center-align">Progress: {{progressService.progressWidth}}</h5>
+        </div>
+        <div class="progress">
+          <div class="determinate" [style.width]="progressService.progressWidth"></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
