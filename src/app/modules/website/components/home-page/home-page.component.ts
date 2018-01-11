@@ -33,6 +33,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.progressServices.setProgress('55%');
     this.websiteDetails = this.websiteService.getWebsite();
+    console.log(this.websiteDetails);
   }
 
   select(){
@@ -45,14 +46,14 @@ export class HomePageComponent implements OnInit {
             website_id: this.websiteDetails.id,
             type: pageTypes.home.ecommerce,
             active: true,
-            summary: new HomeEcommercePage(JSON.parse(JSON.stringify({})))
+          //   summary: JSON.stringify(new HomeEcommercePage(JSON.parse(JSON.stringify({})))
           })));
           console.log(page);
           this.pageService.store(page)
           .subscribe(
             data => {
               console.log(data);
-              this.router.navigate(['/website/contact', this.homePage]);
+              this.router.navigate(['/website/contact']);
             },
             error => {
               console.log(error.error.message);
@@ -66,7 +67,7 @@ export class HomePageComponent implements OnInit {
             website_id: this.websiteDetails.id,
             type: pageTypes.home.presentation,
             active: true,
-            summary: new HomeEcommercePage(JSON.parse(JSON.stringify({})))
+            // summary: new HomeEcommercePage(JSON.parse(JSON.stringify({})))
           })));
           console.log(page);
           this.pageService.store(page)

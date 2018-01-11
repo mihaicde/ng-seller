@@ -14,6 +14,7 @@ import { UiPreloadersComponent } from './components/ui-preloaders/ui-preloaders.
 import { UiDesignRoutingModule } from './ui-design-routing.module';
 import { UiModalComponent } from './components/ui-modal//ui-modal.component';
 import { UiNotificationsComponent } from './components/ui-notifications/ui-notifications.component';
+import { UiIconBlockComponent } from './components/ui-icon-block/ui-icon-block.component';
 
 // import { ModalComponent } from '../../shared/components/modal/modal.component';
 // import { NotificationComponent } from '.././../shared/components/notification/notification.component';
@@ -35,7 +36,8 @@ import { UiNotificationsComponent } from './components/ui-notifications/ui-notif
     UiPreloadersComponent,
     UiModalComponent,
     UiNotificationsComponent,
-    // ModalComponent,
+    UiIconBlockComponent
+       // ModalComponent,
     // NotificationComponent
   ],
   providers: [

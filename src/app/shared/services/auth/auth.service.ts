@@ -120,21 +120,21 @@ export class AuthService {
     return localStorage.getItem('refreshToken');
   }
 
-  // isLoggedIn() {
-  //   // verify if user is logedIn
-  //   if ( localStorage.getItem('token') !== null ) {
-  //     // true
-  //     return localStorage.getItem('token') !== null;
-  //   } else {
-  //     window.alert('Forbidden access! Please log in!');
-  //     this.router.navigateByUrl('/login');
-  //     return localStorage.getItem('token') !== null;
-  //   }
-  // }
-
   isLoggedIn() {
-    return tokenNotExpired();
+    // verify if user is logedIn
+    if ( localStorage.getItem('token') !== null ) {
+      // true
+      return localStorage.getItem('token') !== null;
+    } else {
+      // window.alert('Forbidden access! Please log in!');
+      // this.router.navigateByUrl('/login');
+      return localStorage.getItem('token') !== null;
+    }
   }
+
+  // isLoggedIn() {
+  //   return tokenNotExpired();
+  // }
 
   getUser() {
     if ( localStorage.getItem('userID') !== null &&
