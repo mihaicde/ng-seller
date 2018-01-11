@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { routerTransition } from './utils/router.animations';
 
 // import my other modules so the components added there would work globally
 import { UiDesignModule } from './modules/ui-design/ui-design.module';
@@ -39,6 +42,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     MaterializeModule.forRoot(),
     AppRoutingModule,

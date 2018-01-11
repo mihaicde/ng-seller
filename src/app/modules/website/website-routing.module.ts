@@ -23,35 +23,43 @@ const routes: Routes = [
       },
       {
         path: 'helpUs',
-        component: HelpUsComponent
+        component: HelpUsComponent,
+        data: { state: 'helpUs'}
       },
       {
         path: 'select',
-        component: SelectWebsiteComponent
+        component: SelectWebsiteComponent,
+        data: { state: 'select'}
       },
       {
         path: 'details/:type',
-        component: WebsiteDetailsComponent
+        component: WebsiteDetailsComponent,
+        data: { state: 'details'}
       },
       {
         path: 'home',
-        component: HomePageComponent
+        component: HomePageComponent,
+        data: { state: 'home'}
       },
       {
         path: 'contact',
-        component: ContactPageComponent
+        component: ContactPageComponent,
+        data: { state: 'contact'}
       },
       {
         path: 'about',
-        component: AboutUsPageComponent
+        component: AboutUsPageComponent,
+        data: { state: 'about'}
       },
       {
         path: 'help',
-        component: HelpComponent
+        component: HelpComponent,
+        data: { state: 'help'}
       },
       {
         path: 'finish',
-        component: WebsiteFinishComponent
+        component: WebsiteFinishComponent,
+        data: { state: 'finish'}
       }
     ]
   }
