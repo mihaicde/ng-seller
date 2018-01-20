@@ -1,6 +1,14 @@
 
+html,
+body{
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Comfortaa', cursive;
+}
+
 header, main, footer {
-  padding-left: 200px;
+  padding-left: 300px;
 }
 
 @media only screen and (max-width : 992px) {
@@ -9,22 +17,20 @@ header, main, footer {
   }
 }
 
-html,
-body{
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Comfortaa', cursive;
-}
 body {
   min-height: 100%;
 }
 
-.main{
+main{
   min-height:100%;
   width:100%;
   overflow: auto;
-  background: $body-color;
+  color: $fontColor;
+}
+
+.mainContainer {
+  margin:20px;
+  padding:20px;
 }
 
 .background{
@@ -36,12 +42,9 @@ body {
   padding-left:10px;
 }
 
-.cardContainer {
-  background-color:$primary-color;
-  color: $fontColor;
-  padding:20px;
-  margin-top: 20px;
-}
+// .cardContainer {
+//   color: $fontColor;
+// }
 
 .header_badges {
   overflow: initial;

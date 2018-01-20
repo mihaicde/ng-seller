@@ -5,7 +5,7 @@
         <app-top-nav></app-top-nav>
       </ul>
 
-      <ul materialize="collapsible" id="slide-out" class="side-nav fixed sideNavAdmin collapsible collapsible-accordion">
+      <ul materialize="collapsible" id="slide-out" class="side-nav fixed sideNavAdmin collapsible collapsible-accordion galaxy darken-1">
         <li>
           <div class="userView">
             <div class="background">
@@ -28,7 +28,7 @@
         </li>
         <li><div class="divider"></div></li>
         <li *ngIf="websiteDetails"><a class="collapsible-header waves-effect waves-pink"><i class="material-icons">content_paste</i>Pagini</a>
-          <div class="collapsible-body productSubMenu">
+          <div class="collapsible-body productSubMenu galaxy darken-1">
             <ul>
               <li><a class="waves-effect waves" [routerLink]="['/page-home']"><i class="material-icons">description</i>Acasa</a></li>
               <li><a class="waves-effect waves" [routerLink]="['/page-contact']"><i class="material-icons">description</i>Contact</a></li>
@@ -40,7 +40,7 @@
         </li>
         <li><div class="divider"></div></li>
         <li *ngIf="websiteDetails"><a class="collapsible-header waves-effect waves-pink"><i class="material-icons">folder</i>Catalog</a>
-          <div class="collapsible-body productSubMenu">
+          <div class="collapsible-body productSubMenu galaxy darken-1">
             <ul>
               <li><a class="waves-effect waves" [routerLink]="['/availabilities']"><i class="material-icons">event_note</i>Disponibilitati</a></li>
               <li><a class="waves-effect waves" [routerLink]="['/filters']"><i class="material-icons">filter_list</i>Filtre</a></li>

@@ -337,15 +337,18 @@ $shades: (
   "transparent":  transparent
 );
 
+// $galaxy: (
+//   "base":       #34475a, //topnav
+//   "darken-1":   #2f3e50, // main
+//   "darken-2":   #2a3848 //sidenav
+// );
+
 $galaxy: (
-  "base":       #34475a, //topnav
-  "darken-1":   #2f3e50, // main
-  "darken-2":   #2a3848 //sidenav
+  "base":       #2f3e50,
+  "lighten-1":   #34475a,
+  "darken-1":   #2a3848
 );
 
-$sideNav: #2a3848;
-$main: #2f3e50;
-$topNav: #34475a;
 $fontColor: #b3c1ca;
 
 $colors: (
@@ -370,12 +373,13 @@ $colors: (
   "blue-grey": $blue-grey,
   "grey": $grey,
   "shades": $shades,
-  "sideNav": $sideNav,
-  "main": $main,
-  "topNav": $topNav,
+  // "sideNav": $sideNav,
+  // "main": $main,
+  // "topNav": $topNav,
   "fontColor": $fontColor,
   "galaxy": $galaxy
 );
+
 
 
 // Color Classes

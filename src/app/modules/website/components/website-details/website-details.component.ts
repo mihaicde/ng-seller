@@ -81,6 +81,7 @@ export class WebsiteDetailsComponent implements OnInit {
       .subscribe(
           data => {
             console.log(data['obj'].name);
+            console.log(data['obj'].id);
             this.websiteName = data['obj'].name
             this.websiteId = data['obj'].id
             localStorage.setItem('websiteName', data['obj'].name);
@@ -90,7 +91,7 @@ export class WebsiteDetailsComponent implements OnInit {
             console.log(error);
           }
       );
-      this.router.navigate(['/website/home']);
+      // this.router.navigate(['/website/home']);
       this.reset();
     }
     else {
