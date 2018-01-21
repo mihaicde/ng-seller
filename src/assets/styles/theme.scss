@@ -4,15 +4,21 @@ body{
   height: 100%;
   margin: 0px;
   padding: 0px;
-  font-family: 'Comfortaa', cursive;
+  font-family: $font-family-comfortaa;
 }
 
-header, main, footer {
+header, 
+main, 
+// footer 
+{
   padding-left: 300px;
 }
 
 @media only screen and (max-width : 992px) {
-  header, main, footer {
+  header, 
+  main,
+  //  footer 
+   {
     padding-left: 0;
   }
 }
@@ -26,6 +32,10 @@ main{
   width:100%;
   overflow: auto;
   color: $fontColor;
+}
+
+.row {
+  margin-top:10px;
 }
 
 .mainContainer {

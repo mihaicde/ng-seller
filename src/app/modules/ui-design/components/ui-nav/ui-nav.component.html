@@ -8,14 +8,75 @@
               </div>
             </div>
           </li>
-          <li><div class="divider"></div></li>
-          <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['buttons']">Buttons</a></li>
-          <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['preloaders']">Preloaders</a></li>
-          <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['modals']">Modals</a></li>
-          <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['notifications']">Notifications</a></li>
-          <li><div class="divider"></div></li>
-        </ul>
 
+          <li><div class="divider"></div></li>
+
+          <li>
+            <a class="collapsible-header waves-effect">
+              <i class="material-icons">content_paste</i>
+              Components
+            </a>
+            <div class="collapsible-body productSubMenu galaxy darken-1">
+              <ul>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['buttons']"><i class="material-icons">aspect_ratio</i>Buttons</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['preloaders']"><i class="material-icons">aspect_ratio</i>Preloaders</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['modals']"><i class="material-icons">aspect_ratio</i>Modals</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['notifications']"><i class="material-icons">aspect_ratio</i>Notifications</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['icon-block']"><i class="material-icons">aspect_ratio</i>Icon-Block</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['parallax']"><i class="material-icons">aspect_ratio</i>Parallax</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['carousel']"><i class="material-icons">aspect_ratio</i>Carousel</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['slider']"><i class="material-icons">aspect_ratio</i>Slider</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['cards']"><i class="material-icons">aspect_ratio</i>Cards</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['forms']"><i class="material-icons">aspect_ratio</i>Forms</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['collapsible']"><i class="material-icons">aspect_ratio</i>Collapsible</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['media']"><i class="material-icons">aspect_ratio</i>Media</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['tooltip']"><i class="material-icons">aspect_ratio</i>Tooltip</a></li>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['colors']"><i class="material-icons">aspect_ratio</i>Colors</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li><div class="divider"></div></li>
+
+          <li>
+            <a class="collapsible-header waves-effect">
+              <i class="material-icons">apps</i>
+              Sections
+            </a>
+            <div class="collapsible-body productSubMenu galaxy darken-1">
+              <ul>
+                <li><a class="waves-effect waves" [routerLink]="['ui-home']"><i class="material-icons">description</i>Home</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['ui-contact']"><i class="material-icons">description</i>Contact</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['ui-about']"><i class="material-icons">description</i>About</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['ui-help']"><i class="material-icons">description</i>Help</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['ui-store']"><i class="material-icons">description</i>Store</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['ui-showcase']"><i class="material-icons">description</i>Showcase</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['ui-blog']"><i class="material-icons">description</i>Blog</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['ui-navs']"><i class="material-icons">description</i>Navs</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['ui-footer']"><i class="material-icons">description</i>Footer</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li><div class="divider"></div></li>
+
+          <li>
+            <a class="collapsible-header waves-effect">
+              <i class="material-icons">content_paste</i>
+              Themes
+            </a>
+            <div class="collapsible-body productSubMenu galaxy darken-1">
+              <ul>
+                <li><a class="waves-effect waves" target="_blank" [routerLink]="['ui-parallax-template']"><i class="material-icons">description</i>Parallax</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['']"><i class="material-icons">description</i>Theme 2</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li><div class="divider"></div></li>
+
+        </ul>
+       
         <a href="#" materialize="sideNav" [materializeParams]="[{edge:'left'}]" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
       </div>
