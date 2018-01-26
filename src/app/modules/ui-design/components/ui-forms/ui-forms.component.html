@@ -1,3 +1,154 @@
-<p>
-  ui-forms works!
-</p>
+
+  <h4>Input fields</h4>
+
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Disabled</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          This is an inline input field:
+          <div class="input-field inline">
+            <input id="email2" type="email" class="validate">
+            <label for="email2" data-error="wrong" data-success="right">Email</label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <h4>Icon Prefixes</h4>
+
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input id="icon_telephone" type="tel" class="validate">
+          <label for="icon_telephone">Telephone</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <h4>Textarea Icon Prefix</h4>
+
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">First Name</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <h4>Select</h4>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <select materialize="material_select"
+        [materializeSelectOptions]="select1">
+        <option value="" disabled selected>Choose your option</option>
+        <option *ngFor="let sel of select1;"
+          [value]="sel.key">
+          {{sel.value}}
+        </option>
+      </select>
+      <label>Materialize Select</label>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="input-field col s12">
+      <select multiple materialize="material_select"
+        [materializeSelectOptions]="select1">
+        <option value="" disabled selected>Choose your option</option>
+        <option *ngFor="let sel of select1;"
+          [value]="sel.key">
+          {{sel.value}}
+        </option>
+      </select>
+      <label>Materialize Multiple Select</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <select multiple materialize="material_select"
+      [materializeSelectOptions]="selectOpt">
+        <optgroup *ngFor="let sel of selectOpt;" [label]="sel.name">
+          <option value="" disabled selected>Choose your option</option>
+          <option *ngFor="let group of sel.group;"
+            [value]="group.key">
+            {{group.value}}
+          </option>
+        </optgroup>
+      </select>
+      <label>Optgroups</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12 m6">
+      <select class="icons" materialize="material_select"
+        [materializeSelectOptions]="selectImages">
+        <option value="" disabled selected>Choose your option</option>
+        <option *ngFor="let sel of selectImages;"
+          [value]="sel.key"
+          [attr.data-icon]="sel.image"
+          class="circle">
+          {{sel.value}}
+        </option>>
+      </select>
+      <label>Images in select</label>
+    </div>
+    <div class="input-field col s12 m6">
+      <select class="icons" materialize="material_select"
+        [materializeSelectOptions]="selectImages">
+        <option value="" disabled selected>Choose your option</option>
+        <option *ngFor="let sel of selectImages;"
+          [value]="sel.key"
+          [attr.data-icon]="sel.image"
+          class="left circle">
+          {{sel.value}}
+        </option>>
+      </select>
+      <label>Images in select</label>
+    </div>
+  </div>
+  
+

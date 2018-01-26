@@ -5,12 +5,5 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyBxSKTUuyNFFiHWrmTp_AsLsDsFJhtMp74",
-    authDomain: "denopi-test.firebaseapp.com",
-    databaseURL: "https://denopi-test.firebaseio.com",
-    projectId: "denopi-test",
-    storageBucket: "denopi-test.appspot.com",
-    messagingSenderId: "539751143361"
-  }
+  googleApiKey: "AIzaSyDcbrsTcmb9VqCcJ_93KrtLhj2uMOnADQM"
 };

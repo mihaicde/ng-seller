@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ErrorHandler } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
 
+import { AgmCoreModule } from '@agm/core';
+
 import { SharedModule } from '../shared/shared.module';
 
 import { UiMainComponent } from './components/ui-main/ui-main.component';
@@ -46,7 +48,8 @@ import { ParallaxTemplateComponent } from './ui-templates/parallax-template/para
     CommonModule,
     MaterializeModule,
     UiDesignRoutingModule,
-    SharedModule
+    SharedModule,
+    AgmCoreModule
   ],
   declarations: [
     UiMainComponent,

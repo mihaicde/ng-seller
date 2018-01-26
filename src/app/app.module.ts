@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AgmCoreModule } from '@agm/core';
+import { environment } from '../environments/environment';
+
 import { routerTransition } from './utils/router.animations';
 
 // import my other modules so the components added there would work globally
@@ -45,6 +48,9 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     BrowserAnimationsModule,
     HttpClientModule,
     MaterializeModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleApiKey // using the API Key declared in environment.ts
+    }),
     AppRoutingModule,
     AdminModule,
     WebsiteModule,
