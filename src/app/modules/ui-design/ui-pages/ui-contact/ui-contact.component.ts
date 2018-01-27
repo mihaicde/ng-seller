@@ -16,9 +16,22 @@ export class UiContactComponent implements OnInit {
   lng: number = 26.136114;
   agmHeight: string = '300px';
 
+  formColor :string = "teal";
+  colors :Array<string> = [
+    "teal",
+    "red",
+    "cyan",
+    "pink darken-4",
+    "purple darken-4"
+  ];
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  changeColor(color) {
+    console.log(color);
+    this.formColor = color;
+  }
 }

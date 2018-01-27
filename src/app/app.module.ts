@@ -41,6 +41,7 @@ import { LoggedInGuard } from './shared/guards/singedin.guard';
 
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { UiPortfolioComponent } from './ui-portfolio/ui-portfolio.component';
 
 @NgModule({
   imports: [

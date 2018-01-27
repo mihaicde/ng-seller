@@ -1,44 +1,134 @@
-  <div class="row">
-    <agm-map [ngStyle]="{ 'height': agmHeight}" [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng">
-        <agm-info-window>Flo`s Home</agm-info-window> 
-      </agm-marker>
-    </agm-map>
-  </div>
-
-  <div class="row">
-    <div class="col s12 m6 l6">
-      <div class="contact-us">
-        <h3>Contact us</h3>
-        <div class="contact-address">
-          <p>Centerville Road, DE 19808, US </p>
-          <p>Phone: <span class="teal-text">(+94 123 456 789)</span> </p>
-          <p>Email : <span class="teal-text">(contact@denopi.com)</span></p>
+  <h4>Example 1</h4>
+  <div class="divider"></div>
+  <div class="example-1">
+    <div class="row">
+      <agm-map [ngStyle]="{ 'height': agmHeight}" [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng">
+          <agm-info-window>Flo`s Home</agm-info-window> 
+        </agm-marker>
+      </agm-map>
+    </div>
+  
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="contact-us">
+          <h3>Contact us</h3>
+          <div class="contact-address">
+            <p>Centerville Road, DE 19808, US </p>
+            <p>Phone: <span class="teal-text">(+94 123 456 789)</span> </p>
+            <p>Email : <span class="teal-text">(contact@denopi.com)</span></p>
+          </div>
         </div>
       </div>
+      <div class="col s12 m6 l6">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col m12">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="name" type="text" class="validate">
+              <label for="name">Name</label>
+            </div>
+            <div class="input-field col m12">
+              <i class="material-icons prefix">email</i>
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+            <div class="input-field col m12">
+              <i class="material-icons prefix">chat</i>
+              <textarea id="message" class="materialize-textarea"></textarea>
+              <label for="message">Message</label>
+            </div>
+            <div class="input-field col m12 center-align">
+              <button class="btn waves-effect waves-light" type="submit" name="action"><i class="material-icons right">send</i>Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="col s12 m6 l6">
-      <form class="col s12">
+  </div>
+  
+  <div class="divider"></div>
+
+  <h4>Example 2</h4>
+  <div class="divider"></div>
+  <p>Select a color: </p>
+  <div class="select-color">
+    <ul>
+      <li *ngFor="let color of colors;" class="{{color}} colorPick" (click)="changeColor(color)"></li>
+    </ul>
+  </div>
+  <div class="divider"></div>
+  <div class="example-2">
+    <div class="row flex">
+      <div class="col s12 m9 l9 white" style="color: #000; padding:30px;">
         <div class="row">
-          <div class="input-field col m12">
-            <i class="material-icons prefix">account_circle</i>
+          <h5><i class="material-icons prefix">email</i> Write to us:</h5>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6 l6">
             <input id="name" type="text" class="validate">
-            <label for="name">Name</label>
+            <label for="name">Your Name</label>
           </div>
-          <div class="input-field col m12">
-            <i class="material-icons prefix">email</i>
+          <div class="input-field col s12 m6 l6">
             <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-          <div class="input-field col m12">
-            <i class="material-icons prefix">chat</i>
-            <textarea id="message" class="materialize-textarea"></textarea>
-            <label for="message">Message</label>
-          </div>
-          <div class="input-field col m12 center-align">
-            <button class="btn waves-effect waves-light" type="submit" name="action"><i class="material-icons right">send</i>Send</button>
+            <label for="email">Your Email</label>
           </div>
         </div>
-      </form>
+        <div class="row">
+          <div class="input-field col s12 m6 l6">
+            <input id="name" type="text" class="validate">
+            <label for="name">Your Phone</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <input id="email" type="text" class="validate">
+            <label for="email">Your Company</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <textarea id="message" class="materialize-textarea"></textarea>
+            <a class="btn-floating halfway-fab btn-large waves-effect waves-light {{formColor}}"
+              style="right: 0; bottom: 0px;">
+              <i class="material-icons">send</i>
+            </a>
+            <label for="message">Message</label>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3 l3 {{formColor}}" style="padding:30px;">
+        <div class="row">
+          <h5 class="white-text center-align">Contact information</h5>
+          <div class="row">
+            <p>
+              <i class="material-icons prefix" style="font-size:2rem;">location_on</i>
+              <span class="white-text">San Francisco, CA 94126, USA</span>
+            </p>
+          </div>
+          <div class="row">
+            <p>
+              <i class="material-icons prefix" style="font-size:2rem;">phone</i> 
+              <span class="white-text">+ 01 234 567 89</span>
+            </p>
+          </div>
+          <div class="row">
+            <p>
+              <i class="material-icons prefix" style="font-size:2rem;">email</i> 
+              <span class="white-text">contact@example.com</span>
+            </p>
+          </div>
+          <div class="divider"></div>
+          <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+            
+            </div>
+            <div class="col">
+            
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>

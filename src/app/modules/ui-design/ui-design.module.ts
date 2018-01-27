@@ -27,7 +27,8 @@ import { UiCollapsibleComponent } from './components/ui-collapsible/ui-collapsib
 import { UiMediaComponent } from './components/ui-media/ui-media.component';
 import { UiTooltipsComponent } from './components/ui-tooltips/ui-tooltips.component';
 import { UiColorsComponent } from './components/ui-colors/ui-colors.component';
-
+import { UiTabsComponent } from './components/ui-tabs/ui-tabs.component';
+import { UiTextDividerComponent } from './components/ui-text-divider/ui-text-divider.component';
 
 // UI - PAGES
 import { UiHomeComponent } from './ui-pages/ui-home/ui-home.component';
@@ -39,6 +40,11 @@ import { UiHelpComponent } from './ui-pages/ui-help/ui-help.component';
 import { UiFooterComponent } from './ui-pages/ui-footer/ui-footer.component';
 import { UiNavsComponent } from './ui-pages/ui-navs/ui-navs.component';
 import { UiBlogComponent } from './ui-pages/ui-blog/ui-blog.component';
+import { UiReviewsComponent } from './ui-pages/ui-reviews/ui-reviews.component';
+import { UiPricingComponent } from './ui-pages/ui-pricing/ui-pricing.component';
+import { UiCalendarComponent } from './ui-pages/ui-calendar/ui-calendar.component';
+import { UiAlbumComponent } from './ui-pages/ui-album/ui-album.component';
+import { UiPortfolioComponent } from './ui-pages/ui-portfolio/ui-portfolio.component';
 
 // UI - TEMPLATES
 import { ParallaxTemplateComponent } from './ui-templates/parallax-template/parallax-template.component';
@@ -63,6 +69,7 @@ import { ParallaxTemplateComponent } from './ui-templates/parallax-template/para
     UiCarouselComponent,
     UiSliderComponent,
     UiCardsComponent,
+    UiTabsComponent,
     UiFormsComponent,
     UiCollapsibleComponent,
     UiMediaComponent,
@@ -77,6 +84,12 @@ import { ParallaxTemplateComponent } from './ui-templates/parallax-template/para
     UiFooterComponent,
     UiNavsComponent,
     UiBlogComponent,
+    UiReviewsComponent,
+    UiTextDividerComponent,
+    UiPricingComponent,
+    UiCalendarComponent,
+    UiAlbumComponent,
+    UiPortfolioComponent,
     ParallaxTemplateComponent
   ],
   providers: [
