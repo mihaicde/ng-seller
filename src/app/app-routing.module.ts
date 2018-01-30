@@ -20,6 +20,7 @@ const APP_ROUTES: Routes = [
   { path: 'policy', component: PrivacyPolicyComponent },
   { path: 'ui', loadChildren: './modules/ui-design/ui-design.module#UiDesignModule' },
   { path: 'website', loadChildren: './modules/website/website.module#WebsiteModule' },
+  { path: 'theme', loadChildren: './modules/theme/theme.module#ThemeModule' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

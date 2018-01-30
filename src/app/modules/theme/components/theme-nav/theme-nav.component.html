@@ -1,0 +1,53 @@
+<header>
+    <nav class="navAdmin" role="navigation">
+      <div class="nav-wrapper">
+        <ul materialize="collapsible" id="slide-out" class="side-nav fixed sideNavAdmin collapsible collapsible-accordion galaxy darken-1">
+          <li>
+            <div class="userView">
+              <div class="background">
+              </div>
+            </div>
+          </li>
+
+          <li><div class="divider"></div></li>
+
+          <li>
+            <a class="collapsible-header waves-effect">
+              <i class="material-icons">content_paste</i>
+              Themes
+            </a>
+            <div class="collapsible-body productSubMenu galaxy darken-1">
+              <ul>
+                <li><a class="waves-effect waves-cyan-accent-2" [routerLink]="['select-theme']"><i class="material-icons">aspect_ratio</i>Select a Theme</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li><div class="divider"></div></li>
+
+          <li>
+            <a class="collapsible-header waves-effect">
+              <i class="material-icons">apps</i>
+              Pages
+            </a>
+            <div class="collapsible-body productSubMenu galaxy darken-1">
+              <ul>
+                <li><a class="waves-effect waves" [routerLink]="['home']"><i class="material-icons">description</i>Home</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['contact']"><i class="material-icons">description</i>Contact</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['about']"><i class="material-icons">description</i>About</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['help']"><i class="material-icons">description</i>Help</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['store']"><i class="material-icons">description</i>Store</a></li>
+                <li><a class="waves-effect waves" [routerLink]="['schedule']"><i class="material-icons">description</i>Calendar</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li><div class="divider"></div></li>
+
+        </ul>
+       
+        <a href="#" materialize="sideNav" [materializeParams]="[{edge:'left'}]" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+      </div>
+    </nav>
+  </header>

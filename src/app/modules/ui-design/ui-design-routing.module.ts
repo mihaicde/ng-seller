@@ -20,6 +20,7 @@ import { UiTooltipsComponent } from './components/ui-tooltips/ui-tooltips.compon
 import { UiColorsComponent } from './components/ui-colors/ui-colors.component';
 import { UiTabsComponent } from './components/ui-tabs/ui-tabs.component';
 import { UiTextDividerComponent } from './components/ui-text-divider/ui-text-divider.component';
+import { UiJumbotronComponent } from './components/ui-jumbotron/ui-jumbotron.component';
 
 // UI - PAGES
 import { UiHomeComponent } from './ui-pages/ui-home/ui-home.component';
@@ -54,6 +55,10 @@ const uiRoutes: Routes = [
       {
         path: 'buttons',
         component: UiButtonsComponent
+      },
+      {
+        path: 'jumbotron',
+        component: UiJumbotronComponent
       },
       {
         path: 'calendar',

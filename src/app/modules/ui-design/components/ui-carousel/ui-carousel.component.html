@@ -1,7 +1,7 @@
-<div materialize="carousel" [materializeParams]="[{fullWidth: true}]" 
+<!-- <div materialize="carousel" [materializeParams]="[{fullWidth: true}]" 
   class="carousel carousel-slider center" 
   data-indicators="true"
-  [ngStyle]="{'height':'500px'}">
+  [ngStyle]="{'height': carouselHeight}">
   <div class="carousel-fixed-item center">
     <a class="btn waves-effect btn-teal btn-large">button</a>
   </div>
@@ -21,4 +21,8 @@
     <h2>Fourth Panel</h2>
     <p class="white-text">This is your fourth panel</p>
   </div>
-</div>
+</div> -->
+<app-carousel #carousel1></app-carousel>
+<br />
+<br />
+<app-carousel #carousel2></app-carousel>

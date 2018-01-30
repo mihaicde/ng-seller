@@ -5,7 +5,8 @@ import { ErrorHandler } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { ModalComponent } from '../../shared/components/modal/modal.component';
-import { NotificationComponent } from '.././../shared/components/notification/notification.component';
+import { NotificationComponent } from '../../shared/components/notification/notification.component';
+import { CarouselComponent } from '../../shared/components/carousel/carousel.component';
 
 import { NotificationService } from '../../shared/services/notification.service';
 import { CustomErrorHandler } from '../../shared/services/custom-error-handler';
@@ -20,6 +21,7 @@ import { FieldErrorDisplayComponent } from '../../shared/components/field-error-
   declarations: [
     ModalComponent,
     NotificationComponent,
+    CarouselComponent,
     FieldErrorDisplayComponent
   ],
   providers: [
@@ -30,6 +32,7 @@ import { FieldErrorDisplayComponent } from '../../shared/components/field-error-
     CommonModule,
     ModalComponent,
     NotificationComponent,
+    CarouselComponent,
     FieldErrorDisplayComponent
   ]
 })

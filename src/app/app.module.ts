@@ -12,6 +12,7 @@ import { routerTransition } from './utils/router.animations';
 import { UiDesignModule } from './modules/ui-design/ui-design.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { WebsiteModule } from './modules/website/website.module';
+import { ThemeModule } from './modules/theme/theme.module';
 import { SharedModule } from './modules/shared/shared.module';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -41,7 +42,6 @@ import { LoggedInGuard } from './shared/guards/singedin.guard';
 
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
-import { UiPortfolioComponent } from './ui-portfolio/ui-portfolio.component';
 
 @NgModule({
   imports: [
@@ -57,6 +57,7 @@ import { UiPortfolioComponent } from './ui-portfolio/ui-portfolio.component';
     WebsiteModule,
     SharedModule,
     UiDesignModule,
+    ThemeModule,
     HttpModule,
     ReactiveFormsModule
   ],
