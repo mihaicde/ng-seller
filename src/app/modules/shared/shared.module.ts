@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ErrorHandler } from '@angular/core';
 
+import { Routes, RouterModule } from '@angular/router';
+
 import { MaterializeModule } from 'angular2-materialize';
 
 import { ModalComponent } from '../../shared/components/modal/modal.component';
@@ -16,7 +18,8 @@ import { FieldErrorDisplayComponent } from '../../shared/components/field-error-
 @NgModule({
   imports: [
     CommonModule,
-    MaterializeModule
+    MaterializeModule,
+    RouterModule
   ],
   declarations: [
     ModalComponent,

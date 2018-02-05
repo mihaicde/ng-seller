@@ -20,7 +20,8 @@ for(var i = 0;i < 3;i++) {
     //get half previous height
     var pre_h = $(".circle"+(i-1)).height() / 2;
     //get previous position
-    console.log((".circle"+(i-1)).position());
+    // console.log((".circle"+(i-1)).position());
+
     var pre_top = $(".circle"+(i-1)).position().top;
     var pre_left = $(".circle"+(i-1)).position().left;
 

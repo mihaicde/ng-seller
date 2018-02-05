@@ -1,12 +1,17 @@
   <div #carousel 
     class="carousel carousel-slider center" 
     [ngClass]="{ 'initialized': showInitialized }"
+    [ngStyle]="{ 'max-height': carouselHeight }"
     data-indicators="true"
     materialize="carousel" 
     [materializeParams]="[{fullWidth: true}]" 
     [materializeActions]="carouselActions">
 
-    <div class="carousel-fixed-item center middle-indicator">
+    <div *ngIf="showActionButton" class="carousel-fixed-item center">
+      <a [routerLink]="btnLink" class="btn waves-effect {{btnColor}}">{{btnText}}</a>
+    </div>
+
+    <div *ngIf="showArrows" class="carousel-fixed-item center middle-indicator">
       <div class="left">
         <a (click)="prev()" 
           class="movePrevCarousel middle-indicator-text 

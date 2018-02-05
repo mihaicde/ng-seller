@@ -7,7 +7,7 @@ import { CarouselComponent } from '../../../../shared/components/carousel/carous
   templateUrl: './ui-carousel.component.html'
 })
 export class UiCarouselComponent implements OnInit {
-  carouselHeight= '800px;'
+  // carouselHeight= '800px;'
 
   @ViewChild('carousel1')
   carouselComponent1: CarouselComponent;
@@ -33,6 +33,14 @@ export class UiCarouselComponent implements OnInit {
 
   ngOnInit() {
     this.carouselComponent1.imageURLs = this.images;
+    this.carouselComponent1.showArrows = true;
+    this.carouselComponent1.showActionButton = true;
+    this.carouselComponent1.btnColor = 'teal';
+    this.carouselComponent1.btnText = 'About Us';
+    this.carouselComponent1.btnLink = '/theme';
+    this.carouselComponent1.carouselHeight = '600px';
+
+
     this.carouselComponent2.imageURLs = this.images2;
   }
   

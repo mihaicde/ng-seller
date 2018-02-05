@@ -15,6 +15,25 @@ export class CarouselComponent implements OnInit {
   @Input()
   imageURLs?: Array<string>;
 
+  @Input()
+  showArrows?: Boolean = true;
+
+  @Input()
+  showActionButton?: Boolean = false;
+
+  @Input()
+  btnColor: String = 'teal';
+
+  @Input()
+  btnText: String = 'About Us';
+
+  @Input()
+  btnLink: String = 'theme';
+
+  @Input()
+  carouselHeight?: String = '500px';
+  
+
   constructor() { }
 
   ngOnInit() {

@@ -3,7 +3,9 @@ import { Notification } from '../../models/Notification';
 import { MaterializeDirective, MaterializeAction } from 'angular2-materialize';
 
 import { NotificationService } from '../../services/notification.service';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeWhile';
+import 'rxjs/add/operator/takeUntil';
 
 @Component({
   selector: 'app-notification',
@@ -11,7 +13,8 @@ import 'rxjs/add/operator/takeWhile';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnDestroy, OnInit {
-  private alive: boolean = true;
+  // private alive: boolean = true; // will use Subject instead
+  private shouldUnsubscribe: Subject<any> = new Subject<any>();
 
   icon_1 =        '<i class="material-icons print iToast">';
   icon_2 =        '</i>';
@@ -35,7 +38,8 @@ export class NotificationComponent implements OnDestroy, OnInit {
 
   ngOnInit() {
     this.notifyService.notifyOccurred
-    .takeWhile(() => this.alive)
+    // .takeWhile(() => this.alive)
+    .takeUntil(this.shouldUnsubscribe)
     .subscribe(
       (notification: Notification) => {
           this.notification = notification;
@@ -47,7 +51,9 @@ export class NotificationComponent implements OnDestroy, OnInit {
 
   ngOnDestroy() {
     // this.notifyService.notifyOccurred.unsubscribe();
-    this.alive = false;
+    // this.alive = false;
+    this.shouldUnsubscribe.next();
+    this.shouldUnsubscribe.complete();
   }
 
 }
