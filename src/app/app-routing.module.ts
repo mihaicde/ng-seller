@@ -10,11 +10,12 @@ import { LoggedInGuard } from './shared/guards/singedin.guard';
 
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
-
+// import { DatePickerComponent } from './date-picker/date-picker.component';
 
 const APP_ROUTES: Routes = [
   { path: '', loadChildren: './modules/admin/admin.module#AdminModule', canActivate: [LoggedInGuard] },
   { path: 'login', component: LogInComponent },
+  // { path: 'date', component: DatePickerComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'terms', component: TermsAndConditionsComponent },
   { path: 'policy', component: PrivacyPolicyComponent },

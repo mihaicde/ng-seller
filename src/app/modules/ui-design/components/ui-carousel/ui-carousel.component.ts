@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { CarouselComponent } from '../../../../shared/components/carousel/carousel.component';
+import { CarouselComponent } from '../../../../shared/components/sections/carousel/carousel.component';
 
 @Component({
   selector: 'app-ui-carousel',
   templateUrl: './ui-carousel.component.html'
 })
 export class UiCarouselComponent implements OnInit {
-  // carouselHeight= '800px;'
 
   @ViewChild('carousel1')
   carouselComponent1: CarouselComponent;
@@ -43,13 +42,6 @@ export class UiCarouselComponent implements OnInit {
 
     this.carouselComponent2.imageURLs = this.images2;
   }
-  
-  // next() {
-  //   this.carouselComponent1.next();
-  // }
 
-  // prev() {
-  //   this.carouselComponent1.prev();
-  // }
 
 }

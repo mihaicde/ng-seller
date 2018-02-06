@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiPortfolioComponent } from './ui-portfolio.component';
+import { DatePickerComponent } from './date-picker.component';
 
-describe('UiPortfolioComponent', () => {
-  let component: UiPortfolioComponent;
-  let fixture: ComponentFixture<UiPortfolioComponent>;
+describe('DatePickerComponent', () => {
+  let component: DatePickerComponent;
+  let fixture: ComponentFixture<DatePickerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UiPortfolioComponent ]
+      declarations: [ DatePickerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UiPortfolioComponent);
+    fixture = TestBed.createComponent(DatePickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

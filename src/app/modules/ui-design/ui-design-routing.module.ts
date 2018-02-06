@@ -21,6 +21,7 @@ import { UiColorsComponent } from './components/ui-colors/ui-colors.component';
 import { UiTabsComponent } from './components/ui-tabs/ui-tabs.component';
 import { UiTextDividerComponent } from './components/ui-text-divider/ui-text-divider.component';
 import { UiJumbotronComponent } from './components/ui-jumbotron/ui-jumbotron.component';
+import { UiPortfolioComponent } from './components/ui-portfolio/ui-portfolio.component';
 
 // UI - PAGES
 import { UiHomeComponent } from './ui-pages/ui-home/ui-home.component';
@@ -36,7 +37,7 @@ import { UiReviewsComponent } from './ui-pages/ui-reviews/ui-reviews.component';
 import { UiPricingComponent } from './ui-pages/ui-pricing/ui-pricing.component';
 import { UiCalendarComponent } from './ui-pages/ui-calendar/ui-calendar.component';
 import { UiAlbumComponent } from './ui-pages/ui-album/ui-album.component';
-import { UiPortfolioComponent } from './ui-pages/ui-portfolio/ui-portfolio.component';
+
 
 // UI - TEMPLATES
 import { ParallaxTemplateComponent } from './ui-templates/parallax-template/parallax-template.component';

@@ -43,6 +43,8 @@ import { LoggedInGuard } from './shared/guards/singedin.guard';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
+// import { DatePickerComponent } from './date-picker/date-picker.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     RegisterComponent,
     PageNotFoundComponent,
     TermsAndConditionsComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    // DatePickerComponent
   ],
   providers: [
     AuthService,
